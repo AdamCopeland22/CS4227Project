@@ -3,25 +3,21 @@ Software Design and Architecture project
 
 # Design patterns we want to use
 
-Interpreter 
--picking up browser
--url/uri
+Interceptor 
+  picking up browser
+  url/uri
 
+Interpreter
 
 Mediator
--
 
 Memento
--
 
 The Factory Method
--
 
 Composite
--
 
 Command
--
 
 Null Object
--
+
