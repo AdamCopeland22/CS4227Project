@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Browser {
+public class Browser implements BrowserInterface{
 	private WebDriver driver;
 	
 	public Browser(String browserType) {
@@ -84,5 +84,7 @@ public class Browser {
 	public TargetLocator switchTo() {
 		return driver.switchTo();
 	}
+
+	
 
 }

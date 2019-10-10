@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver.TargetLocator;
 
-public class BrowserManager {
+public class BrowserManager implements BrowserInterface{
 	private List<Browser> browserList;
 	
 	public BrowserManager() {
