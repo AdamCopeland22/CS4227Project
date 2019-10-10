@@ -48,7 +48,7 @@ Commit message: "plz"
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running seleniumWrapper.myTest
+Running seleniumWrapper.Tests.myTest
 Starting ChromeDriver 77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}) on port 46557
 Only local connections are allowed.
 Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
