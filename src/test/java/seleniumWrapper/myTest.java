@@ -11,10 +11,12 @@ public class myTest {
 
 	private static String Base_Url = "https://www.facebook.com";
     private WebDriver driver;
+    
 
     @Before
     public void setUp() 
     {
+    	System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\eclipse-workspace\\seleniumWrapper\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get(Base_Url);
     }
@@ -28,21 +30,9 @@ public class myTest {
     @Test
     public void testCasePassed()
     {
-        Assert.assertTrue(driver.findElement(By.xpath("//form[@id='login_form']")).isDisplayed());
+        System.out.println("PLz");
     }
 
-    @Test
-    public void testCaseFailed()
-    {
-        Assert.assertTrue(driver.findElement(By.xpath("//form[@id='failed case']")).isDisplayed());
-    }
-
-    @Ignore
-    @Test
-    public void testCaseIgnored()
-    {
-        Assert.assertTrue(driver.findElement(By.xpath("//form[@id='ignored case']")).isDisplayed());
-    }
 }
 	
 
