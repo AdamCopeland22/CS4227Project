@@ -1,0 +1,78 @@
+Started by user Cian Doyle
+Running as SYSTEM
+Building in workspace C:\Program Files (x86)\Jenkins\workspace\gitIntegration
+using credential 275ab609-23a3-4e98-88de-d0a845d1fedf
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url https://github.com/AdamCopeland22/CS4227Project.git # timeout=10
+Fetching upstream changes from https://github.com/AdamCopeland22/CS4227Project.git
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > C:\Program Files\Git\bin\git.exe fetch --tags --force --progress -- https://github.com/AdamCopeland22/CS4227Project.git +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 7c9eae0e1b1bd214c8c76088d74c0c35a85c7f63 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 7c9eae0e1b1bd214c8c76088d74c0c35a85c7f63
+Commit message: "plz"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk edebd96a0555216676fc9a3dba13f3dc0aca9c25 # timeout=10
+[gitIntegration] $ cmd.exe /C '""C:\Program Files (x86)\Jenkins\tools\hudson.tasks.Maven_MavenInstallation\maven_3.6.2\bin\mvn.cmd"' clean install -Dtest=myTest && exit %%ERRORLEVEL%%"
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------< com.college.seleniumWrapper:seleniumWrapper >-------------
+[INFO] Building seleniumWrapper 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ seleniumWrapper ---
+[INFO] Deleting C:\Program Files (x86)\Jenkins\workspace\gitIntegration\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ seleniumWrapper ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Program Files (x86)\Jenkins\workspace\gitIntegration\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ seleniumWrapper ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ seleniumWrapper ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Program Files (x86)\Jenkins\workspace\gitIntegration\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ seleniumWrapper ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to C:\Program Files (x86)\Jenkins\workspace\gitIntegration\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ seleniumWrapper ---
+[INFO] Surefire report directory: C:\Program Files (x86)\Jenkins\workspace\gitIntegration\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running seleniumWrapper.myTest
+Starting ChromeDriver 77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}) on port 46557
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1570736739.319][WARNING]: Timed out connecting to Chrome, retrying...
+Oct 10, 2019 8:45:41 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+PLz
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.152 sec
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ seleniumWrapper ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: C:\Program Files (x86)\Jenkins\workspace\gitIntegration\target\seleniumWrapper-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ seleniumWrapper ---
+[INFO] Installing C:\Program Files (x86)\Jenkins\workspace\gitIntegration\target\seleniumWrapper-0.0.1-SNAPSHOT.jar to C:\WINDOWS\system32\config\systemprofile\.m2\repository\com\college\seleniumWrapper\seleniumWrapper\0.0.1-SNAPSHOT\seleniumWrapper-0.0.1-SNAPSHOT.jar
+[INFO] Installing C:\Program Files (x86)\Jenkins\workspace\gitIntegration\pom.xml to C:\WINDOWS\system32\config\systemprofile\.m2\repository\com\college\seleniumWrapper\seleniumWrapper\0.0.1-SNAPSHOT\seleniumWrapper-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  26.441 s
+[INFO] Finished at: 2019-10-10T20:45:47+01:00
+[INFO] ------------------------------------------------------------------------
+Finished: SUCCESS
