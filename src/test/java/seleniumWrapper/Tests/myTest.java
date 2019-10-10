@@ -1,38 +1,68 @@
 package seleniumWrapper.Tests;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import seleniumWrapper.myDriver;
+
+import seleniumWrapper.Browser;
+import seleniumWrapper.BrowserManager;
+import seleniumWrapper.constantVariables;
 import seleniumWrapper.webElementHandlers;
 
 public class myTest {
 
 	private static String Base_Url = "https://www.facebook.com";
-    private WebDriver driver;
+    private Browser myBrowser,browser2;
+    private BrowserManager browserList;
 
     @Before
     public void setUp()
     {
-        driver = new myDriver().getDriver();
-        driver.get(Base_Url);
-        WebElement email = driver.findElement(By.id("email"));
-        email.click();
-        email.sendKeys("jimbob@gmail.com");
-        email.submit();
-        webElementHandlers.waitForElementToDissapear(email, 3);
+    	try {
+    		browserList= new BrowserManager();
+        myBrowser = new Browser(constantVariables.chrome);
+    	
+        browser2 = new Browser(constantVariables.chrome);
+        browserList.addBrowser(myBrowser);
+    	
+        browserList.addBrowser(browser2);
+        
+    	}catch(Exception e) {
+    		System.out.println(e);
+    	}
+        
+        
+        
     }
 
     @After
     public void after()
     {
-        driver.quit();
+    	browserList.quit();
     }
 
     @Test
-    public void testCasePassed()
+    public void testCasePassed ()
     {
-        System.out.println("PLz");
+    	try {
+    		
+    	browserList.get(Base_Url);
+    	Thread.sleep(1000);
+    	
+    	List<WebElement> email = browserList.findElement(By.id("email"));
+        for(int i=0;i<email.size();i++) {
+        	email.get(i).click();
+        	email.get(i).sendKeys("jimbob@gmail.com");
+            email.get(i).submit();
+        	
+        }
+        
+
+    	}catch(Exception e) {
+    		System.out.println(e);
+    	}
     }
 
 }
