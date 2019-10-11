@@ -14,7 +14,7 @@ Memento
 
 The Factory Method
 
-Composite
+Composite - Implemented by Cian
 
 Command
 
