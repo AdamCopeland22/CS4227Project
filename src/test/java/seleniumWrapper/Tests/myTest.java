@@ -52,8 +52,8 @@ public class myTest {
     	Thread.sleep(1000);
     	
     	List<WebElement> email = browserList.findElement(By.id("email"));
-        for(int i=0;i<email.size();i++) {
-//        	ElementHandler handler = new ElementHandler(email.get(i));
+//        for(int i=0;i<email.size();i++) {
+//      	ElementHandler handler = new ElementHandler(email.get(i));
 //        	Command clickCommand = new clickCommand(handler);
 //        	Command sendKeysCommand = new sendKeysCommand(handler, "jimbob@gmail.com");
 //        	Command submitCommand = new submitCommand(handler);
@@ -67,10 +67,10 @@ public class myTest {
 //        	handler.execute("sendKeys");
 //        	handler.execute("submit");
         	
-        	email.click();
-        	email.sendKeys("jimbob@gmail.com");
-        	email.submit();
-        }
+//        	email.click();
+//        	email.sendKeys("jimbob@gmail.com");
+ //       	email.submit();
+ //       }
         
 
     	}catch(Exception e) {

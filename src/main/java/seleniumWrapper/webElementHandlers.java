@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.fail;
 
+import java.util.List;
+
 public class webElementHandlers {
 	
 	private List<WebElement> elements;
@@ -34,20 +36,19 @@ public class webElementHandlers {
 	    }
 	}
 
-	class ClickCommand implements Command {
+	class ClickCommand implements CommandInterface {
 	    private final ElementHandler elementHandler;
 
 	    public ClickCommand(ElementHandler elementHandler) {
 	        this.elementHandler = elementHandler;
 	    }
 
-	    @Override // Command
 	    public void execute() {
 	    	elementHandler.click();
 	    }
 	}
 	
-	class SendKeysCommand implements Command {
+	class SendKeysCommand implements CommandInterface {
 	    private final ElementHandler elementHandler;
 	    private String keys;
 
@@ -56,20 +57,20 @@ public class webElementHandlers {
 	        this.keys = keys;
 	    }
 
-	    @Override // Command
+	    
 	    public void execute() {
 	    	elementHandler.sendKeys(keys);
 	    }
 	}
 
-	class SubmitCommand implements Command {
+	class SubmitCommand implements CommandInterface {
 	    private final ElementHandler elementHandler;
 
 	    public SubmitCommand(ElementHandler elementHandler) {
 	        this.elementHandler = elementHandler;
 	    }
 
-	    @Override // Command
+	    
 	    public void execute() {
 	    	elementHandler.submit();
 	    }
