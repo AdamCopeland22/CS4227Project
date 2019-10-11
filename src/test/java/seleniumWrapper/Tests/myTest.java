@@ -6,10 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 
-import seleniumWrapper.Browser;
-import seleniumWrapper.BrowserManager;
-import seleniumWrapper.constantVariables;
-import seleniumWrapper.webElementHandlers;
+import seleniumWrapper.*;
 
 public class myTest {
 
@@ -22,9 +19,9 @@ public class myTest {
     {
     	try {
     		browserList= new BrowserManager();
-        myBrowser = new Browser(constantVariables.chrome);
+        myBrowser = new Browser(ConstantVariables.chrome);
     	
-        browser2 = new Browser(constantVariables.chrome);
+        browser2 = new Browser(ConstantVariables.chrome);
         browserList.addBrowser(myBrowser);
     	
         browserList.addBrowser(browser2);
@@ -52,25 +49,21 @@ public class myTest {
     	Thread.sleep(1000);
     	
     	List<WebElement> email = browserList.findElement(By.id("email"));
-//        for(int i=0;i<email.size();i++) {
-//      	ElementHandler handler = new ElementHandler(email.get(i));
-//        	Command clickCommand = new clickCommand(handler);
-//        	Command sendKeysCommand = new sendKeysCommand(handler, "jimbob@gmail.com");
-//        	Command submitCommand = new submitCommand(handler);
-//        	
-//        	Handler handler = new Handler();
-//        	handler.register("click", switchOn);
-//        	handler.register("sendKeys", switchOff);
-//        	handler.register("submit", switchOff);
-//
-//        	handler.execute("click");
-//        	handler.execute("sendKeys");
-//        	handler.execute("submit");
+        for(int i=0;i<email.size();i++) {
+      	ElementHandler elementHandler = new ElementHandler(email.get(i));
+      	CommandInterface clickCommand = new ClickCommand(elementHandler);
+      	CommandInterface sendKeysCommand = new SendKeysCommand(elementHandler, "jimbob@gmail.com");
+      	CommandInterface submitCommand = new SubmitCommand(elementHandler);
         	
-//        	email.click();
-//        	email.sendKeys("jimbob@gmail.com");
- //       	email.submit();
- //       }
+        	Handler handler = new Handler();
+        	handler.register("click", clickCommand);
+        	handler.register("sendKeys", sendKeysCommand);
+        	handler.register("submit", submitCommand);
+
+        	handler.execute("click");
+        	handler.execute("sendKeys");
+        	handler.execute("submit");
+        }
         
 
     	}catch(Exception e) {

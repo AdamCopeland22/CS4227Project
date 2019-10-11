@@ -16,12 +16,12 @@ public class Browser implements BrowserInterface{
 	
 	public Browser(String browserType) {
 	
-		 if(browserType.equals(constantVariables.chrome)) {
+		 if(browserType.equals(ConstantVariables.chrome)) {
 	            String chromeDriverPath = System.getProperty("user.dir") + "\\src\\test\\java\\drivers\\chromedriver.exe";
 	            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 	            driver = new ChromeDriver();
 	        }
-	        else if(browserType.equals(constantVariables.firefox)) {
+	        else if(browserType.equals(ConstantVariables.firefox)) {
 	            driver = new FirefoxDriver();
 	        }
 	}
@@ -84,7 +84,5 @@ public class Browser implements BrowserInterface{
 	public TargetLocator switchTo() {
 		return driver.switchTo();
 	}
-
-	
 
 }

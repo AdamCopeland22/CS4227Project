@@ -1,8 +1,12 @@
 C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\BrowserInterface.java
 C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\Browser.java
-C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\constantVariables.java
-C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\webElementHandlers.java
-C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\CommandInterface.java
-C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\ElementList.java
-C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\Handler.java
+C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\Commands\SendKeysCommand.java
+C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\ConstantVariables.java
+C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\WebElement\Handler.java
+C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\WebElement\ElementHandler.java
+C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\Commands\SubmitCommand.java
+C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\WebElement\WebElementHandlers.java
+C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\Commands\ClickCommand.java
+C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\WebElement\ElementList.java
 C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\BrowserManager.java
+C:\Users\Cathal\Documents\GitHub\CS4227Project\src\main\java\seleniumWrapper\Commands\CommandInterface.java
