@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>seleniumWrapper</name>
 
+
  <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -22,8 +23,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M3</version>
     </dependency>
-        
-    </dependencies>
-  
-
+    </dependencies> 
+    
+    <properties>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
 </project>
