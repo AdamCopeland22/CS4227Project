@@ -1,4 +1,4 @@
-package seleniumWrapper;
+package seleniumWrapper.WebElement;
 
 public class ElementList {
 

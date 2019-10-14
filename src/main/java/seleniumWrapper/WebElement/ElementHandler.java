@@ -1,4 +1,4 @@
-package seleniumWrapper;
+package seleniumWrapper.WebElement;
 import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.fail;

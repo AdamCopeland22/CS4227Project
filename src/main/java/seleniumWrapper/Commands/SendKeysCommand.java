@@ -1,5 +1,7 @@
-package seleniumWrapper;
+package seleniumWrapper.Commands;
 import org.openqa.selenium.WebElement;
+
+import seleniumWrapper.WebElement.ElementHandler;
 
 import static org.junit.Assert.fail;
 

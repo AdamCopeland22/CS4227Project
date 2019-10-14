@@ -1,6 +1,8 @@
-package seleniumWrapper;
+package seleniumWrapper.WebElement;
 
 import java.util.HashMap;
+
+import seleniumWrapper.Commands.CommandInterface;
 
 public class Handler {
     private final HashMap<String, CommandInterface> commandMap = new HashMap<String, CommandInterface>();

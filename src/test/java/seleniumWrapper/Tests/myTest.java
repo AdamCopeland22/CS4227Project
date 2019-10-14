@@ -7,6 +7,12 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 
 import seleniumWrapper.*;
+import seleniumWrapper.Commands.ClickCommand;
+import seleniumWrapper.Commands.CommandInterface;
+import seleniumWrapper.Commands.SendKeysCommand;
+import seleniumWrapper.Commands.SubmitCommand;
+import seleniumWrapper.WebElement.ElementHandler;
+import seleniumWrapper.WebElement.Handler;
 
 public class myTest {
 

@@ -1,4 +1,4 @@
-package seleniumWrapper;
+package seleniumWrapper.WebElement;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
