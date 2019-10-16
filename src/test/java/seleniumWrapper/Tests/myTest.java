@@ -1,4 +1,5 @@
 package seleniumWrapper.Tests;
+import java.io.IOException;
 import java.util.List;
 
 import org.junit.After;
@@ -41,14 +42,19 @@ public class myTest {
     }
 
     @After
-    public void after()
+    public void after() throws IOException
     {
+    	
     	browserList.quit();
+    	myBrowser.writeReport();
+    	myBrowser.displayTestStats();
     }
 
     @Test
     public void testCasePassed ()
     {
+    	myBrowser.startTest();
+    	
     	try {
     		
     	browserList.get(Base_Url);
@@ -70,10 +76,10 @@ public class myTest {
         	handler.execute("sendKeys");
         	handler.execute("submit");
         }
-        
+        myBrowser.passedTest();
 
     	}catch(Exception e) {
-    		System.out.println(e);
+    		myBrowser.errorHandler();
     	}
     }
 

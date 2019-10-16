@@ -1,4 +1,10 @@
 package seleniumWrapper;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Set;
 
@@ -11,8 +17,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import seleniumWrapper.Logger.Log;
+import seleniumWrapper.Logger.LogBarChart;
+import seleniumWrapper.Logger.LogController;
+
 public class Browser implements BrowserInterface{
 	private WebDriver driver;
+	private LogController log;
 	
 	public Browser(String browserType) {
 	
@@ -24,7 +35,10 @@ public class Browser implements BrowserInterface{
 	        else if(browserType.equals(ConstantVariables.firefox)) {
 	            driver = new FirefoxDriver();
 	        }
+		 log = new LogController(new Log(),new LogBarChart());
 	}
+	
+	
 
 	public void close() {
 		driver.close();
@@ -83,6 +97,30 @@ public class Browser implements BrowserInterface{
 
 	public TargetLocator switchTo() {
 		return driver.switchTo();
+	}
+	
+	public void addAction(String action) {
+		log.addAction(action);
+	}
+	
+	public void writeReport() throws IOException {
+		log.getReport();
+	}
+	
+	public void startTest() {
+		log.startTest();
+	}
+	
+	public void errorHandler() {
+		log.errorHandler();
+	}
+	
+	public void passedTest() {
+		log.passedTest();
+	}
+	
+	public void displayTestStats() {
+		log.updateView();
 	}
 
 }
