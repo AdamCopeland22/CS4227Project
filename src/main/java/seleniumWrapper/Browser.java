@@ -26,12 +26,21 @@ public class Browser implements BrowserInterface{
 	private LogController log;
 	
 	public Browser(String browserType) {
-	
+		String chromeDriverPath;
 		 if(browserType.equals(ConstantVariables.chrome)) {
-	            String chromeDriverPath = System.getProperty("user.dir") + "\\src\\test\\java\\drivers\\chromedriver.exe";
-	            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-	            driver = new ChromeDriver();
-	        }
+			 if(System.getProperty("os.name").toLowerCase().equals("linux"))
+			 {
+				 	chromeDriverPath = System.getProperty("user.dir") + "//src//test//java//drivers//chromedriver";
+				 	System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+		            driver = new ChromeDriver(); 
+			 }
+			 else
+			 {
+				 chromeDriverPath = System.getProperty("user.dir") + "\\src\\test\\java\\drivers\\chromedriver.exe";
+				 System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+		         driver = new ChromeDriver();
+			 }
+		 }
 	        else if(browserType.equals(ConstantVariables.firefox)) {
 	            driver = new FirefoxDriver();
 	        }
