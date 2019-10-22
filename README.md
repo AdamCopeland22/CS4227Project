@@ -21,3 +21,5 @@ Command
 Null Object
 
 MVC - Couple visual representations of test results or something
+
+Pluggable Adapter
