@@ -23,3 +23,5 @@ Null Object
 MVC - Couple visual representations of test results or something
 
 Pluggable Adapter
+
+POSA - Thread pool for concurrency
