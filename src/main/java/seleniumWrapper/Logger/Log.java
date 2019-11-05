@@ -21,8 +21,9 @@ public class Log {
 	}
 	
 	public void getReport() throws IOException {
+	
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		Path path = Paths.get("./"+timeStamp+".txt");
+		Path path = Paths.get("./logs/"+timeStamp+".txt");
 		Files.write(path, actionList, StandardCharsets.UTF_8);
 	}
 	

@@ -54,6 +54,10 @@ public class Browser implements BrowserInterface{
 		
 	}
 	
+	public void setLog() {
+		log = null;
+	}
+	
 	public WebElement findElement(By arg0) {
 		return driver.findElement(arg0);
 	}

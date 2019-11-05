@@ -12,12 +12,16 @@ import seleniumWrapper.Commands.ClickCommand;
 import seleniumWrapper.Commands.CommandInterface;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
+import seleniumWrapper.WebElement.Client;
 import seleniumWrapper.WebElement.ElementHandler;
+import seleniumWrapper.WebElement.FilterManager;
 import seleniumWrapper.WebElement.Handler;
+import seleniumWrapper.WebElement.LogFilter;
+import seleniumWrapper.WebElement.VisibleFilter;
 
 public class myTest {
 
-	private static String Base_Url = "https://www.facebook.com";
+	private static String Base_Url = "https://www.google.com";
     private Browser myBrowser,browser2;
     private BrowserManager browserList;
 
@@ -27,11 +31,13 @@ public class myTest {
     	try {
     		browserList= new BrowserManager();
         myBrowser = new Browser(ConstantVariables.chrome);
-    	
         browser2 = new Browser(ConstantVariables.chrome);
+        browserList.addBrowser(browser2);
         browserList.addBrowser(myBrowser);
     	
-        browserList.addBrowser(browser2);
+     
+    	
+     
         
     	}catch(Exception e) {
     		System.out.println(e);
@@ -44,42 +50,46 @@ public class myTest {
     @After
     public void after() throws IOException
     {
-    	
-    	browserList.quit();
-    	myBrowser.writeReport();
+       	myBrowser.writeReport();
     	myBrowser.displayTestStats();
+    	browserList.quit();
+ 
     }
 
     @Test
     public void testCasePassed ()
     {
-    	myBrowser.startTest();
+    	
     	
     	try {
     		
-    	browserList.get(Base_Url);
-    	Thread.sleep(1000);
+    		browserList.get(Base_Url);
+    	Thread.sleep(5000);
     	
-    	List<WebElement> email = browserList.findElement(By.id("email"));
-        for(int i=0;i<email.size();i++) {
+    	List<WebElement> email = browserList.findElement(By.name("q"));
+        
+    	for(int i=0;i<email.size();i++) {
       	ElementHandler elementHandler = new ElementHandler(email.get(i));
-      	CommandInterface clickCommand = new ClickCommand(elementHandler);
-      	CommandInterface sendKeysCommand = new SendKeysCommand(elementHandler, "jimbob@gmail.com");
-      	CommandInterface submitCommand = new SubmitCommand(elementHandler);
+          
         	
-        	Handler handler = new Handler();
-        	handler.register("click", clickCommand);
-        	handler.register("sendKeys", sendKeysCommand);
-        	handler.register("submit", submitCommand);
+        	FilterManager filterManager = new FilterManager(elementHandler,myBrowser);
+            filterManager.setFilter(new VisibleFilter());
+            filterManager.setFilter(new LogFilter());
 
-        	handler.execute("click");
-        	handler.execute("sendKeys");
-        	handler.execute("submit");
-        }
-        myBrowser.passedTest();
+            Client client = new Client();
+            client.setFilterManager(filterManager);
+            client.sendRequest("click");
+            
+            filterManager.setKeys("Example@gmail.com");
+        	client.sendRequest("sendKeys");
+        	client.sendRequest("submit");
+    	}
+        
+        
 
     	}catch(Exception e) {
-    		myBrowser.errorHandler();
+    		e.printStackTrace();
+    		//myBrowser.errorHandler();
     	}
     }
 

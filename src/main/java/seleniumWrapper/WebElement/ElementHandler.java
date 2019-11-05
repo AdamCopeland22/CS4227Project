@@ -15,6 +15,8 @@ public class ElementHandler {
     public void click() {
         element.click();
     }
+    
+    
 
     public void submit() {
         element.submit();
@@ -22,5 +24,9 @@ public class ElementHandler {
     
     public void sendKeys(String keys) {
         element.sendKeys(keys);
+    }
+    
+    public boolean isVisible() {
+    	return element.isDisplayed();
     }
 }
