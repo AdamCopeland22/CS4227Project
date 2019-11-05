@@ -27,17 +27,17 @@ public class Log {
 	}
 	
 	public void startTest() {
-		actionList.add("Starting test");
+		actionList.add("Starting test " + test);
 		test++;
 	}
 	
 	public void errorHandler() {
-		actionList.add("failed test");
+		actionList.add("Failed test " + test);
 		failed++;
 	}
 	
 	public void passedTest() {
-		actionList.add("Passed test");
+		actionList.add("Passed test " + test);
 		passed++;
 	}
 	
