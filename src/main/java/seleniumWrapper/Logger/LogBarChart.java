@@ -8,10 +8,18 @@ public class LogBarChart extends LogView{
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @author Cian
+	 * @param int []
+	 * @desc Displays test results in a "Bar chart" ;)
+	 */
 	@Override
 	public void displayResults(int[] testStats) {
-		System.out.println("Working");
-		//Insert code to display barchart
+		System.out.println("THIS IS A BAR CHART");
+		System.out.println("Total tests: "+testStats[0]);
+		System.out.println("Passed tests: "+testStats[1]);
+		System.out.println("Failed tests: "+testStats[2]);
+		
 	}
 
 }

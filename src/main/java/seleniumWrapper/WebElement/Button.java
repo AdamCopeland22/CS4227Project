@@ -17,7 +17,7 @@ public class Button implements WebElement {
 	private Browser browse;
 	private WebDriver driver;
 	private String xPath;
-	private ClickCommand click = new ClickCommand(new ElementHandler(this));
+	private ClickCommand click = new ClickCommand(this);
 	
 	public Button (String xPath, Browser b) {
 		this.xPath = xPath;

@@ -1,5 +1,7 @@
 package seleniumWrapper.WebElement;
 
+import org.openqa.selenium.WebElement;
+
 import seleniumWrapper.Browser;
 
 public class VisibleFilter implements Filter {
@@ -8,10 +10,18 @@ public class VisibleFilter implements Filter {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	/**
+	 *@name execute(WebElement e,Browser b,String request)
+	 *@author Cian
+	 *@param WebElement e - The target, Browser b - For Logging purposes, String request
+	 *@return boolean
+	 *@desc - Checks if the specified element is visible	
+	*/
 	@Override
-	public boolean execute(ElementHandler e,Browser b,String request) {
-		System.out.println("Element is visible:"+e.isVisible());
-		return e.isVisible();
+	public boolean execute(WebElement e,Browser b,String request) {
+		System.out.println("Element is visible:"+e.isDisplayed());
+		return e.isDisplayed();
 	}
 
 }

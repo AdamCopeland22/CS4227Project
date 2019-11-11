@@ -20,28 +20,59 @@ public class Log {
 		actionList.add(action);
 	}
 	
+	/**
+	 *@name getReport
+	 *@author Cian
+	 *@param None
+	 *@return void
+	 *@desc - Writes the log to a txt file	
+	*/
 	public void getReport() throws IOException {
 	
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
 		Path path = Paths.get("./logs/"+timeStamp+".txt");
 		Files.write(path, actionList, StandardCharsets.UTF_8);
 	}
-	
+	/**
+	 *@name startTest()
+	 *@author Cian
+	 *@param None
+	 *@return void
+	 *@desc - Logs the start of a test case	
+	*/
 	public void startTest() {
 		actionList.add("Starting test " + test);
 		test++;
 	}
-	
+	/**
+	 *@name errorHandler()
+	 *@author Cian
+	 *@param None
+	 *@return void
+	 *@desc - Logs an error in a test case	
+	*/
 	public void errorHandler() {
 		actionList.add("Failed test " + test);
 		failed++;
 	}
-	
+	/**
+	 *@name passedTest()
+	 *@author Cian
+	 *@param None
+	 *@return void
+	 *@desc - Logs a passed test case	
+	*/
 	public void passedTest() {
 		actionList.add("Passed test " + test);
 		passed++;
 	}
-	
+	/**
+	 *@name getTestStats
+	 *@author Cian
+	 *@param None
+	 *@return int[]
+	 *@desc - Returns the amount of total tests, passed tests and failed tests	
+	*/
 	public int[] getTestStats() {
 		int [] results = {test,passed,failed};
 		return results;

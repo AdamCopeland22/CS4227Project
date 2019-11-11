@@ -9,9 +9,9 @@ import java.util.List;
 
 
 public class ClickCommand implements CommandInterface {
-    private final ElementHandler elementHandler;
+    private final WebElement elementHandler;
 
-    public ClickCommand(ElementHandler elementHandler) {
+    public ClickCommand(WebElement elementHandler) {
         this.elementHandler = elementHandler;
     }
 

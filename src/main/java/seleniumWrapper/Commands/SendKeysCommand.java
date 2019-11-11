@@ -8,10 +8,10 @@ import static org.junit.Assert.fail;
 import java.util.List;
 
 public class SendKeysCommand implements CommandInterface {
-    private final ElementHandler elementHandler;
+    private final WebElement elementHandler;
     private String keys;
 
-    public SendKeysCommand(ElementHandler elementHandler, String keys) {
+    public SendKeysCommand(WebElement elementHandler, String keys) {
         this.elementHandler = elementHandler;
         this.keys = keys;
     }

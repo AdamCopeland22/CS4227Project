@@ -1,5 +1,7 @@
 package seleniumWrapper.WebElement;
 
+import org.openqa.selenium.WebElement;
+
 import seleniumWrapper.Browser;
 
 public class LogFilter implements Filter{
@@ -8,11 +10,17 @@ public class LogFilter implements Filter{
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 *@name execute(WebElement e,Browser b,String request)
+	 *@author Cian
+	 *@param WebElement e - The target, Browser b - For Logging purposes, String request
+	 *@return boolean
+	 *@desc - Logs an action
+	*/
 	@Override
-	public boolean execute(ElementHandler e, Browser b,String request) {
-		
+	public boolean execute(WebElement e, Browser b,String request) {
 		try {
-			//b.setLog();   --Uncomment this line to see interceptor aborting steps
+			//b.setLog();   //--Uncomment this line to see interceptor aborting steps
 			b.addAction(request+"On Element:"+e);
 			System.out.println(request+"On Element:"+e);
 			return true;

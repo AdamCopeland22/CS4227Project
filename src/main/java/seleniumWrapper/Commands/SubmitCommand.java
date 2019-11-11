@@ -8,9 +8,9 @@ import static org.junit.Assert.fail;
 import java.util.List;
 
 public class SubmitCommand implements CommandInterface {
-    private final ElementHandler elementHandler;
+    private final WebElement elementHandler;
 
-    public SubmitCommand(ElementHandler elementHandler) {
+    public SubmitCommand(WebElement elementHandler) {
         this.elementHandler = elementHandler;
     }
 

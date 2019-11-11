@@ -23,6 +23,16 @@ public class BrowserManager implements BrowserInterface{
 		browserList.add(b);
 	}
 	
+
+	/**
+	 * @author Cian
+	 * @Desc - Returns browser at specified index
+	 * @param Int i 
+	 */
+	public Browser getBrowser(int i) {
+		return browserList.get(i);
+	}
+	
 	/**
 	 * @author Cian
 	 * @Desc -Remove a browser from list
@@ -47,6 +57,39 @@ public class BrowserManager implements BrowserInterface{
 	public void close() {
 	  for(int i=0;i<browserList.size();i++) {
 		browserList.get(i).getDriver().close();
+	  }
+		
+	}
+	
+	/**
+	 * @author Cian
+	 * @Desc - Starts tests
+	 */
+	public void startTest() {
+	  for(int i=0;i<browserList.size();i++) {
+		browserList.get(i).startTest();
+	  }
+		
+	}
+	
+	/**
+	 * @author Cian
+	 * @Desc - Error handler
+	 */
+	public void errorHandler() {
+	  for(int i=0;i<browserList.size();i++) {
+		browserList.get(i).errorHandler();
+	  }
+		
+	}
+	
+	/**
+	 * @author Cian
+	 * @Desc - Starts tests
+	 */
+	public void passedTest() {
+	  for(int i=0;i<browserList.size();i++) {
+		browserList.get(i).passedTest();
 	  }
 		
 	}

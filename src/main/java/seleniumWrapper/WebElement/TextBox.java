@@ -18,11 +18,10 @@ public class TextBox implements WebElement{
 	private Browser browse;
 	private WebDriver driver;
 	private String xPath;
-	private ClickCommand click = new ClickCommand(new ElementHandler(this));
+	private ClickCommand click = new ClickCommand(this);
 	
-	public TextBox (String xPath, Browser b) {
+	public TextBox (String xPath) {
 		this.xPath = xPath;
-		this.browse = b;
 	}
 	
 	@Override

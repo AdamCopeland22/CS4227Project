@@ -3,6 +3,8 @@ package seleniumWrapper.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.WebElement;
+
 import seleniumWrapper.Browser;
 import seleniumWrapper.Commands.ClickCommand;
 import seleniumWrapper.Commands.CommandInterface;
@@ -11,7 +13,7 @@ import seleniumWrapper.Commands.SubmitCommand;
 
 public class FilterChain {
 	private List<Filter> filters = new ArrayList<Filter>();
-	 private ElementHandler target;
+	 private WebElement target;
 	 private Handler handler;
 	private CommandInterface clickCommand;
    	private CommandInterface submitCommand;
@@ -24,11 +26,26 @@ public class FilterChain {
 	 public FilterChain(Browser b) {
 		 browser =b;
 	 }
+	 
+	 /**
+		 *@name addFilter(Filter filter)
+		 *@author Cian
+		 *@param Filter
+		 *@return void
+		 *@desc - Adds a filter to the chain
+		*/
 	   public void addFilter(Filter filter){
 	      filters.add(filter);
 	   }
 	   
 
+	   /**
+		 *@name execute(String request)
+		 *@author Cian
+		 *@param String request
+		 *@return void
+		 *@desc - Executes an action on a target after executing the filters - If any filter fails the action is aborted
+		*/
 	   public void execute(String request){
 		   //Cancel execution if any step fails
 		   boolean passed=true;
@@ -45,7 +62,15 @@ public class FilterChain {
 	     }
 	   }
 
-	   public void setTarget(ElementHandler target){
+	   
+	   /**
+		 *@name setTarget(WebElement target)
+		 *@author Cian
+		 *@param WebElement
+		 *@return void
+		 *@desc -Sets the target of the filter chain, concrete commands need to be re-registered
+		*/
+	   public void setTarget(WebElement target){
 	      this.target = target;
 	      //Need to re-register all commands and handlers if new target is set
 		  clickCommand = new ClickCommand(target);
@@ -55,6 +80,14 @@ public class FilterChain {
 		  handler.register("submit", submitCommand);
 	   }
 	   
+	   
+	   /**
+		 *@name setKeys(String keys)
+		 *@author Cian
+		 *@param String keys
+		 *@return void
+		 *@desc - Sets the keys that will be used for the sendKeysCommand
+		*/
 	   public void setKeys(String keys) {
 		   this.keys = keys;
 			 sendKeysCommand = new SendKeysCommand(target, keys);

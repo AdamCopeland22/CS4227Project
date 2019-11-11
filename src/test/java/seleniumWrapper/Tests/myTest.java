@@ -17,6 +17,7 @@ import seleniumWrapper.WebElement.ElementHandler;
 import seleniumWrapper.WebElement.FilterManager;
 import seleniumWrapper.WebElement.Handler;
 import seleniumWrapper.WebElement.LogFilter;
+import seleniumWrapper.WebElement.TextBox;
 import seleniumWrapper.WebElement.VisibleFilter;
 
 public class myTest {
@@ -59,20 +60,22 @@ public class myTest {
     @Test
     public void testCasePassed ()
     {
-    	
+    	//Test to open two browsers and execute actions on them sim
     	
     	try {
-    		
+    		browserList.startTest();
     		browserList.get(Base_Url);
-    	Thread.sleep(5000);
+    		Thread.sleep(5000);
     	
+    	//Get all elements matching the ID
     	List<WebElement> email = browserList.findElement(By.name("q"));
         
+    	//For each element, execute some actions using Interceptor
     	for(int i=0;i<email.size();i++) {
-      	ElementHandler elementHandler = new ElementHandler(email.get(i));
+    		WebElement elementHandler = email.get(i);
           
         	
-        	FilterManager filterManager = new FilterManager(elementHandler,myBrowser);
+        	FilterManager filterManager = new FilterManager(elementHandler,browserList.getBrowser(i));
             filterManager.setFilter(new VisibleFilter());
             filterManager.setFilter(new LogFilter());
 
@@ -86,11 +89,45 @@ public class myTest {
     	}
         
         
-
+    	browserList.passedTest();
     	}catch(Exception e) {
     		e.printStackTrace();
-    		//myBrowser.errorHandler();
+    		browserList.errorHandler();
     	}
+    }
+    
+    @Test
+    public void cuteDogPics() {
+    	//An essential test to search for cute dog pics
+      try {
+    	  myBrowser.startTest();
+    	myBrowser.get(Base_Url);
+		Thread.sleep(5000);
+		
+		WebElement search = myBrowser.findElement(By.name("q"));
+          
+        	
+        	FilterManager filterManager = new FilterManager(search,myBrowser);
+            filterManager.setFilter(new VisibleFilter());
+            filterManager.setFilter(new LogFilter());
+
+            Client client = new Client();
+            client.setFilterManager(filterManager);
+            client.sendRequest("click");
+            
+            filterManager.setKeys("Cute dog pics");
+        	client.sendRequest("sendKeys");
+        	client.sendRequest("submit");
+    	
+        
+	
+		myBrowser.passedTest();
+      }catch(Exception e) {
+    	  myBrowser.errorHandler();
+    	  
+      }
+    	
+    	
     }
 
 }
