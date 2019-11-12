@@ -27,7 +27,7 @@ public class Browser implements BrowserInterface{
 	
 	public Browser(String browserType) {
 		String chromeDriverPath;
-		 if(browserType.equals(ConstantVariables.chrome)) {
+		 if(browserType.equals(Config.chrome)) {
 			 if(System.getProperty("os.name").toLowerCase().equals("linux"))
 			 {
 				 	chromeDriverPath = System.getProperty("user.dir") + "//src//test//java//drivers//chromedriver";
@@ -41,7 +41,7 @@ public class Browser implements BrowserInterface{
 		         driver = new ChromeDriver();
 			 }
 		 }
-	        else if(browserType.equals(ConstantVariables.firefox)) {
+	        else if(browserType.equals(Config.firefox)) {
 	            driver = new FirefoxDriver();
 	        }
 		 log = new LogController(new Log(),new LogBarChart());

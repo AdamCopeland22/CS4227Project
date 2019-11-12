@@ -1,5 +1,7 @@
 package seleniumWrapper.fileChecker;
 
+import java.io.File;
+
 public class ContentValidation implements Filter{
 	
 	private String fileExtension;
@@ -10,10 +12,47 @@ public class ContentValidation implements Filter{
 		fileSize = size;
 	}
 	
+	/**
+	 *@name validationCheck
+	 *@author Cathal
+	 *@param target - the file in which we want to perform validation checks on
+	 *@return String - the feedback from the validation checks	 
+	 **@desc - performs validations checks on the target file
+	*/
 	@Override
-	public String validationCheck() {
-		String output = "content";
+	public String validationCheck(File target) {
+		String output = "";
+		if(!getFileExtension(target).equals(fileExtension))
+			output += "Extension on file was: " + getFileExtension(target) + " but was meant to be: " + fileExtension + "\n";
+		output += sizeChecks(target);
 		return output; 
 	}
-
+	
+	/**
+	 *@name getFileExtension
+	 *@author Cathal
+	 *@param target - the file in which we want to get the extension from
+	 *@return String - the file extension of the target
+	 *@desc - returns the file extension of the given target file
+	*/
+	private String getFileExtension(File target) {
+		String filePath = target.getAbsolutePath();
+	    int indexOfDot = filePath.indexOf(".");
+	    return filePath.substring(indexOfDot);
+	}
+	
+	/**
+	 *@name sizeChecks
+	 *@author Cathal
+	 *@param target - the file in which we want to perform the size checks on
+	 *@return String - the feedback to send back for error handling by client user
+	 *@desc - Checks the size of the file in terms to the limit set by configurations
+	*/
+	private String sizeChecks(File target) {
+		if(target.length() > fileSize)
+			return "File size was greater than: " + target.length() + " but was meant to be less than: " + fileSize + "\n";
+		else if(target.length() == fileSize)
+			return "File size was the same size as the limit: " + fileSize + "\n";
+		return "";
+	}
 }

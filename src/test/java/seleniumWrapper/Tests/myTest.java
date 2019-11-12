@@ -1,4 +1,5 @@
 package seleniumWrapper.Tests;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -19,6 +20,7 @@ import seleniumWrapper.WebElement.Handler;
 import seleniumWrapper.WebElement.LogFilter;
 import seleniumWrapper.WebElement.TextBox;
 import seleniumWrapper.WebElement.VisibleFilter;
+import seleniumWrapper.fileChecker.FileFilterManager;
 
 public class myTest {
 
@@ -31,21 +33,13 @@ public class myTest {
     {
     	try {
     		browserList= new BrowserManager();
-        myBrowser = new Browser(ConstantVariables.chrome);
-        browser2 = new Browser(ConstantVariables.chrome);
-        browserList.addBrowser(browser2);
-        browserList.addBrowser(myBrowser);
-    	
-     
-    	
-     
-        
+    		myBrowser = new Browser(Config.chrome);
+    		browser2 = new Browser(Config.chrome);
+    		browserList.addBrowser(browser2);
+    		browserList.addBrowser(myBrowser);   
     	}catch(Exception e) {
     		System.out.println(e);
-    	}
-        
-        
-        
+    	}     
     }
 
     @After
@@ -54,14 +48,12 @@ public class myTest {
        	myBrowser.writeReport();
     	myBrowser.displayTestStats();
     	browserList.quit();
- 
     }
 
     @Test
     public void testCasePassed ()
     {
-    	//Test to open two browsers and execute actions on them sim
-    	
+    	//Test to open two browsers and execute actions on them sim	
     	try {
     		browserList.startTest();
     		browserList.get(Base_Url);
@@ -73,8 +65,7 @@ public class myTest {
     	//For each element, execute some actions using Interceptor
     	for(int i=0;i<email.size();i++) {
     		WebElement elementHandler = email.get(i);
-          
-        	
+              	
         	FilterManager filterManager = new FilterManager(elementHandler,browserList.getBrowser(i));
             filterManager.setFilter(new VisibleFilter());
             filterManager.setFilter(new LogFilter());
@@ -101,35 +92,35 @@ public class myTest {
     	//An essential test to search for cute dog pics
       try {
     	  myBrowser.startTest();
-    	myBrowser.get(Base_Url);
-		Thread.sleep(5000);
+    	  myBrowser.get(Base_Url);
+    	  Thread.sleep(5000);
 		
-		WebElement search = myBrowser.findElement(By.name("q"));
+    	  WebElement search = myBrowser.findElement(By.name("q"));
           
-        	
-        	FilterManager filterManager = new FilterManager(search,myBrowser);
-            filterManager.setFilter(new VisibleFilter());
-            filterManager.setFilter(new LogFilter());
+    	  FilterManager filterManager = new FilterManager(search,myBrowser);
+    	  filterManager.setFilter(new VisibleFilter());
+          filterManager.setFilter(new LogFilter());
 
-            Client client = new Client();
-            client.setFilterManager(filterManager);
-            client.sendRequest("click");
+          Client client = new Client();
+          client.setFilterManager(filterManager);
+          client.sendRequest("click");
             
-            filterManager.setKeys("Cute dog pics");
-        	client.sendRequest("sendKeys");
-        	client.sendRequest("submit");
+          filterManager.setKeys("Cute dog pics");
+          client.sendRequest("sendKeys");
+       	  client.sendRequest("submit");
     	
-        
-	
-		myBrowser.passedTest();
+       	  myBrowser.passedTest();
       }catch(Exception e) {
-    	  myBrowser.errorHandler();
-    	  
-      }
-    	
-    	
+    	  myBrowser.errorHandler();  
+      } 	
     }
-
+    
+    @Test
+    public void fileChecks() {
+    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\hiya.txt");
+    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(3, file);
+    	fileManager.FilterRequest();
+    }
 }
 	
 

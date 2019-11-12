@@ -1,5 +1,14 @@
 package seleniumWrapper.fileChecker;
 
+import java.io.File;
+
 public interface Filter {
-	public String validationCheck();
+	/**
+	 *@name validationCheck
+	 *@author Cathal
+	 *@param None
+	 *@return void
+	 *@desc - Is a method to be used by any class that hopes to be used for validation interceptor points
+	*/
+	public String validationCheck(File target);
 }

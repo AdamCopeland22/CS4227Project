@@ -1,6 +1,6 @@
 package seleniumWrapper;
 
-public class ConstantVariables {
+public class Config {
     public static String driverType = "Chrome";
     public static String chrome     = "Chrome";
     public static String firefox     = "Firefox";

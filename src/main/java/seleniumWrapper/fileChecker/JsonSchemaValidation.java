@@ -11,8 +11,8 @@ public class JsonSchemaValidation implements Filter {
 	}
 	
 	@Override
-	public String validationCheck() {
-		String output = "json";
+	public String validationCheck(File target) {
+		String output = "";
 		return output; 
     }
 }
