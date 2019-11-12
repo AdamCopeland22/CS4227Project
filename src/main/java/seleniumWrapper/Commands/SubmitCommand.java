@@ -1,4 +1,5 @@
 package seleniumWrapper.Commands;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 
 import seleniumWrapper.WebElement.ElementHandler;
@@ -15,7 +16,13 @@ public class SubmitCommand implements CommandInterface {
     }
 
     
-    public void execute() {
-    	elementHandler.submit();
+    public String execute() {
+    	try {
+    		elementHandler.submit();
+    	}
+    	catch (StaleElementReferenceException stale) {
+    		return "Stale Element";
+    	}
+    	return "Submitted";
     }
 }

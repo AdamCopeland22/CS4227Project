@@ -1,4 +1,5 @@
 package seleniumWrapper.Commands;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 
 import seleniumWrapper.WebElement.ElementHandler;
@@ -17,7 +18,13 @@ public class SendKeysCommand implements CommandInterface {
     }
 
     
-    public void execute() {
+    public String execute() {
+    	try {
     	elementHandler.sendKeys(keys);
+    	}
+    	catch (StaleElementReferenceException stale) {
+    		return "Stale Element";
+    	}
+    	return "Keys Sent";
     }
 }

@@ -1,4 +1,5 @@
 package seleniumWrapper.Commands;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 
 import seleniumWrapper.WebElement.ElementHandler;
@@ -15,7 +16,13 @@ public class ClickCommand implements CommandInterface {
         this.elementHandler = elementHandler;
     }
 
-    public void execute() {
+    public String execute() {
+    	try {
     	elementHandler.click();
+    	}
+    	catch (StaleElementReferenceException stale) {
+    		return "Stale Element";
+    	}
+    	return "Clicked";
     }
 }

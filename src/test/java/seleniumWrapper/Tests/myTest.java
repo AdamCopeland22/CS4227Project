@@ -11,6 +11,7 @@ import org.openqa.selenium.*;
 import seleniumWrapper.*;
 import seleniumWrapper.Commands.ClickCommand;
 import seleniumWrapper.Commands.CommandInterface;
+import seleniumWrapper.Commands.InputDataAndCheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
 import seleniumWrapper.WebElement.Client;
@@ -120,6 +121,14 @@ public class myTest {
     	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\hiya.txt");
     	FileFilterManager fileManager = FileFilterManager.ManagerCreation(3, file);
     	fileManager.FilterRequest();
+    }
+    
+    @Test
+    public void inputValidation() {
+    	myBrowser.get("https://www.google.com/");
+    	WebElement searchBar = myBrowser.findElement(By.name("q"));
+    	CommandInterface inputValidation = new InputDataAndCheckCommand(searchBar, "Armadillo", "q", "Armadillo", 3, myBrowser);
+    	System.out.print(inputValidation.execute());
     }
 }
 	
