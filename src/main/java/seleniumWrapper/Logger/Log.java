@@ -8,6 +8,8 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import org.junit.Assert;
+
 public class Log {
 
 	 ArrayList<String> actionList;
@@ -51,9 +53,11 @@ public class Log {
 	 *@return void
 	 *@desc - Logs an error in a test case	
 	*/
-	public void errorHandler() {
+	public void errorHandler(Exception e) {
 		actionList.add("Failed test " + test);
 		failed++;
+		actionList.add(e.toString());
+		Assert.fail();
 	}
 	/**
 	 *@name passedTest()

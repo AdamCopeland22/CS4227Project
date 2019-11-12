@@ -14,12 +14,11 @@ import seleniumWrapper.Commands.CommandInterface;
 import seleniumWrapper.Commands.InputDataAndCheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
+import seleniumWrapper.SecureLogin.SecureLogin;
 import seleniumWrapper.WebElement.Client;
 import seleniumWrapper.WebElement.ElementHandler;
 import seleniumWrapper.WebElement.FilterManager;
-import seleniumWrapper.WebElement.Handler;
 import seleniumWrapper.WebElement.LogFilter;
-import seleniumWrapper.WebElement.TextBox;
 import seleniumWrapper.WebElement.VisibleFilter;
 import seleniumWrapper.fileChecker.FileFilterManager;
 
@@ -62,6 +61,9 @@ public class myTest {
     	
     	//Get all elements matching the ID
     	List<WebElement> email = browserList.findElement(By.name("q"));
+    	//Get the login details
+    	 SecureLogin.read();
+         List<String> temp =SecureLogin.getLogin("cianlogin");
         
     	//For each element, execute some actions using Interceptor
     	for(int i=0;i<email.size();i++) {
@@ -75,7 +77,9 @@ public class myTest {
             client.setFilterManager(filterManager);
             client.sendRequest("click");
             
-            filterManager.setKeys("Example@gmail.com");
+           
+            
+            filterManager.setKeys(temp.get(0));
         	client.sendRequest("sendKeys");
         	client.sendRequest("submit");
     	}
@@ -84,7 +88,7 @@ public class myTest {
     	browserList.passedTest();
     	}catch(Exception e) {
     		e.printStackTrace();
-    		browserList.errorHandler();
+    		browserList.errorHandler(e);
     	}
     }
     
@@ -112,7 +116,7 @@ public class myTest {
     	
        	  myBrowser.passedTest();
       }catch(Exception e) {
-    	  myBrowser.errorHandler();  
+    	  myBrowser.errorHandler(e);  
       } 	
     }
     

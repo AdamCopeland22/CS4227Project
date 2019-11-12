@@ -76,9 +76,9 @@ public class BrowserManager implements BrowserInterface{
 	 * @author Cian
 	 * @Desc - Error handler
 	 */
-	public void errorHandler() {
+	public void errorHandler(Exception e) {
 	  for(int i=0;i<browserList.size();i++) {
-		browserList.get(i).errorHandler();
+		browserList.get(i).errorHandler(e);
 	  }
 		
 	}

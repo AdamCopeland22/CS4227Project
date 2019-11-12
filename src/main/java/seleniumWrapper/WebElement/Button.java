@@ -28,7 +28,7 @@ public class Button implements WebElement {
 	public <X> X getScreenshotAs(OutputType<X> target) throws WebDriverException {
 		// TODO Auto-generated method stub
 		browse.addAction("getScreenshotAs() invalid for Button");
-		browse.errorHandler();
+		//browse.errorHandler();
 		return null;
 	}
 
@@ -46,13 +46,13 @@ public class Button implements WebElement {
 	@Override
 	public void sendKeys(CharSequence... keysToSend) {
 		browse.addAction("sendKeys() invalid for Button");
-		browse.errorHandler();
+		//browse.errorHandler();
 	}
 
 	@Override
 	public void clear() {
 		browse.addAction("clear() invalid for Button");
-		browse.errorHandler();		
+		//browse.errorHandler();		
 	}
 
 	@Override
@@ -93,14 +93,14 @@ public class Button implements WebElement {
 	@Override
 	public List<WebElement> findElements(By by) {
 		browse.addAction("findElements() invalid for Button");
-		browse.errorHandler();	
+		//browse.errorHandler();	
 		return null;
 	}
 
 	@Override
 	public WebElement findElement(By by) {
 		browse.addAction("findElement() invalid for Button");
-		browse.errorHandler();	
+		//browse.errorHandler();	
 		return null;
 	}
 

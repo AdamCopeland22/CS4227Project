@@ -55,8 +55,8 @@ public class LogController {
 	 *@desc - Logs an error in a test case	
 	*/
 	
-	public void errorHandler() {
-		log.errorHandler();
+	public void errorHandler(Exception e) {
+		log.errorHandler(e);
 	}
 	
 	/**

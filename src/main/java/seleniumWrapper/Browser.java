@@ -61,6 +61,7 @@ public class Browser implements BrowserInterface{
 	}
 	
 	
+	
 	/**
 	 *@name setLog()
 	 *@author Cian
@@ -260,8 +261,8 @@ public class Browser implements BrowserInterface{
 	 *@return void
 	 *@desc - Logs an error in a test case	
 	*/
-	public void errorHandler() {
-		log.errorHandler();
+	public void errorHandler(Exception e) {
+		log.errorHandler(e);
 	}
 	/**
 	 *@name passedTest()
