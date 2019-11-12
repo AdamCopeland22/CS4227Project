@@ -28,7 +28,7 @@ public class TextBox implements WebElement{
 	public <X> X getScreenshotAs(OutputType<X> target) throws WebDriverException {
 		// TODO Auto-generated method stub
 		browse.addAction("getScreenshotAs() invalid for TextBox");
-		browse.errorHandler();
+		//browse.errorHandler();
 		return null;
 	}
 
@@ -93,14 +93,14 @@ public class TextBox implements WebElement{
 	@Override
 	public List<WebElement> findElements(By by) {
 		browse.addAction("findElements() invalid for TextBox");
-		browse.errorHandler();	
+		//browse.errorHandler();	
 		return null;
 	}
 
 	@Override
 	public WebElement findElement(By by) {
 		browse.addAction("findElement() invalid for TextBox");
-		browse.errorHandler();	
+		//browse.errorHandler();	
 		return null;
 	}
 
