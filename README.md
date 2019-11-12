@@ -2,9 +2,10 @@ CS4227Project
 ==============
 
 Design patterns we want to use
+✓ - next to ones we should implement
 --------------
 
-Interceptor 
+Interceptor - Cathal - cian
 
 Interpreter
 
@@ -12,16 +13,21 @@ Mediator
 
 Memento
 
-The Factory Method
+The Factory Method ✓
 
-Composite - Implemented by Cian
+Composite - Cian
 
-Command
+Command - Cathal
 
-Null Object
+Null Object ✓
 
-MVC - Couple visual representations of test results or something
+MVC ✓
+*Couple visual representations of test results or something
 
-Pluggable Adapter
+Pluggable Adapter ✓
+*JJ said implementing this would be good
 
-POSA - Thread pool for concurrency
+POSA
+*Thread pool for concurrency
+
+Strategy - Cathal
