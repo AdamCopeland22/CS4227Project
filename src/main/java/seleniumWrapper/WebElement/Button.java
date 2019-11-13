@@ -11,156 +11,84 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import seleniumWrapper.Browser;
 import seleniumWrapper.Commands.ClickCommand;
+import seleniumWrapper.Commands.SubmitCommand;
 
-public class Button implements WebElement {
+public class Button extends ElementHandler {
 
 	private Browser browse;
-	private WebDriver driver;
 	private String xPath;
-	private ClickCommand click = new ClickCommand(this);
 	
-	public Button (String xPath, Browser b) {
+	public Button (String xPath, Browser browse) {
+		super(browse.getDriver().findElement(By.xpath(xPath)));	
 		this.xPath = xPath;
-		this.browse = b;
+		this.browse = browse;
 	}
 	
-	@Override
-	public <X> X getScreenshotAs(OutputType<X> target) throws WebDriverException {
-		// TODO Auto-generated method stub
-		browse.addAction("getScreenshotAs() invalid for Button");
-		//browse.errorHandler();
-		return null;
-	}
-
-	@Override
-	public void click() {
-		click.execute();
-		browse.addAction("click() for Button " + xPath);
-	}
-
-	@Override
-	public void submit() {
-		browse.addAction("Form submitted");
-	}
-
+	/**
+	 *@name sendKeys()
+	 *@author Alex
+	 *@param CharSequence... keysToSend
+	 *@return void
+	 *@desc - Method invalid for buttons
+	*/
 	@Override
 	public void sendKeys(CharSequence... keysToSend) {
-		browse.addAction("sendKeys() invalid for Button");
-		//browse.errorHandler();
+		browse.addAction("sendKeys() invalid for Buttons");
 	}
-
+	
+	/**
+	 *@name clear()
+	 *@author Alex
+	 *@param None
+	 *@return void
+	 *@desc - Method invalid for buttons	
+	*/
 	@Override
 	public void clear() {
 		browse.addAction("clear() invalid for Button");
-		//browse.errorHandler();		
-	}
-
-	@Override
-	public String getTagName() {
-		String out = driver.findElement(By.xpath(xPath)).getTagName();
-		browse.addAction("getTagName() for Button " + xPath);
-		return out;
-	}
-
-	@Override
-	public String getAttribute(String name) {
-		String out = driver.findElement(By.xpath(xPath)).getAttribute(name);
-		browse.addAction("getAttribute() " + name + " for Button " + xPath + ". Result: " + out);
-		return out;
-	}
-
-	@Override
-	public boolean isSelected() {
-		Boolean out = driver.findElement(By.xpath(xPath)).isSelected();
-		browse.addAction("isSelected() for Button " + xPath + ". Result: " + out);
-		return out;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		Boolean out = driver.findElement(By.xpath(xPath)).isEnabled();
-		browse.addAction("isEnabled() for Button " + xPath + ". Result: " + out);
-		return out;
-	}
-
-	@Override
-	public String getText() {
-		String out = driver.findElement(By.xpath(xPath)).getText();
-		browse.addAction("getText() for Button " + xPath + ". Result: " + out);
-		return out;
-	}
-
-	@Override
-	public List<WebElement> findElements(By by) {
-		browse.addAction("findElements() invalid for Button");
-		//browse.errorHandler();	
-		return null;
-	}
-
-	@Override
-	public WebElement findElement(By by) {
-		browse.addAction("findElement() invalid for Button");
-		//browse.errorHandler();	
-		return null;
-	}
-
-	@Override
-	public boolean isDisplayed() {
-		Boolean out = driver.findElement(By.xpath(xPath)).isDisplayed();
-		browse.addAction("isDisplayed() for Button " + xPath + ". Result: " + out);
-		return out;
-	}
-
-	@Override
-	public Point getLocation() {
-		Point out = driver.findElement(By.xpath(xPath)).getLocation();
-		browse.addAction("getLocation() for Button " + xPath + ". Result: " + out);
-		return out;
-	}
-
-	@Override
-	public Dimension getSize() {
-		Dimension out = driver.findElement(By.xpath(xPath)).getSize();
-		browse.addAction("getSize() for Button " + xPath + ". Result: " + out);
-		return out;
-	}
-
-	@Override
-	public Rectangle getRect() {
-		Rectangle out = driver.findElement(By.xpath(xPath)).getRect();
-		browse.addAction("getRect() for Button " + xPath + ". Result: " + out);
-		return out;
-	}
-
-	@Override
-	public String getCssValue(String propertyName) {
-		String out = driver.findElement(By.xpath(xPath)).getCssValue(propertyName);
-		browse.addAction("getCssValue(" + propertyName + ") for Button " + xPath + ". Result: " + out);
-		return out;
 	}
 	
+	/**
+	 *@name getBrowser()
+	 *@author Alex
+	 *@param None
+	 *@return Browser
+	 *@desc - Returns the button's browser	
+	*/
 	public Browser getBrowser()	{
 		return browse;
 	}
 	
+	/**
+	 *@name setBrowser()
+	 *@author Alex
+	 *@param Browser browse
+	 *@return void
+	 *@desc - Sets button's browser	
+	*/
 	public void setBrowser(Browser browse)	{
 		this.browse = browse;
 	}
 	
-	public WebDriver getDriver()	{
-		return driver;
-	}
-	
-	public void setDriver(WebDriver driver)	{
-		this.driver = driver;
-	}
-	
+	/**
+	 *@name getXPath()
+	 *@author Alex
+	 *@param None
+	 *@return String xPath
+	 *@desc - Returns the xPath of the element
+	*/
 	public String getXPath()	{
 		return xPath;
 	}
 	
+	/**
+	 *@name setXpath()
+	 *@author Alex
+	 *@param String xPath
+	 *@return void
+	 *@desc - Sets xPath of the element
+	*/
 	public void setXPath(String xPath)	{
 		this.xPath = xPath;
 	}
-
 }
