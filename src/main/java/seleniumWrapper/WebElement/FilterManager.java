@@ -3,13 +3,14 @@ package seleniumWrapper.WebElement;
 import org.openqa.selenium.WebElement;
 
 import seleniumWrapper.Browser;
+import seleniumWrapper.BrowserInterface;
 
 public class FilterManager {
 
 	FilterChain filterChain;
 	
 
-	   public FilterManager(WebElement target,Browser browser){
+	   public FilterManager(WebElement target,BrowserInterface browser){
 	      filterChain = new FilterChain(browser);
 	      filterChain.setTarget(target);
 	   }

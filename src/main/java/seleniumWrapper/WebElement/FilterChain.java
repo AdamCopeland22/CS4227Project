@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 
 import seleniumWrapper.Browser;
+import seleniumWrapper.BrowserInterface;
 import seleniumWrapper.Commands.ClickCommand;
 import seleniumWrapper.Commands.CommandInterface;
 import seleniumWrapper.Commands.SendKeysCommand;
@@ -18,12 +19,12 @@ public class FilterChain {
 	private CommandInterface clickCommand;
    	private CommandInterface submitCommand;
 	CommandInterface sendKeysCommand;
-   	private Browser browser;
+   	private BrowserInterface browser;
    	private String keys="";
    
 	 
 
-	 public FilterChain(Browser b) {
+	 public FilterChain(BrowserInterface b) {
 		 browser =b;
 	 }
 	 

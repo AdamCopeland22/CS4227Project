@@ -3,6 +3,7 @@ package seleniumWrapper.WebElement;
 import org.openqa.selenium.WebElement;
 
 import seleniumWrapper.Browser;
+import seleniumWrapper.BrowserInterface;
 
 public class LogFilter implements Filter{
 
@@ -18,7 +19,7 @@ public class LogFilter implements Filter{
 	 *@desc - Logs an action
 	*/
 	@Override
-	public boolean execute(WebElement e, Browser b,String request) {
+	public boolean execute(WebElement e, BrowserInterface b,String request) {
 		try {
 			//b.setLog();   //--Uncomment this line to see interceptor aborting steps
 			b.addAction(request+"On Element:"+e);

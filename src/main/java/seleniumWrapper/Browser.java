@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -80,8 +81,10 @@ public class Browser implements BrowserInterface{
 	 *@return void
 	 *@desc - Returns the element matching the input (Default selenium method)	
 	*/
-	public WebElement findElement(By arg0) {
-		return driver.findElement(arg0);
+	public List<WebElement> findElement(By arg0) {
+		List<WebElement> temp = new ArrayList<>();
+		temp.add(driver.findElement(arg0));
+		return temp;
 	}
 
 	/**
@@ -91,8 +94,10 @@ public class Browser implements BrowserInterface{
 	 *@return void
 	 *@desc - Returns the list of elements matching the input (Default selenium method)	
 	*/
-	public List<WebElement> findElements(By arg0) {
-		return driver.findElements(arg0);
+	public List<List<WebElement>> findElements(By arg0) {
+		List<List<WebElement>> temp = new ArrayList<>();
+		temp.add(driver.findElements(arg0));
+		return temp;
 	}
 
 	/**
@@ -114,8 +119,10 @@ public class Browser implements BrowserInterface{
 	 *@return void
 	 *@desc - Gets current URL (Default selenium method)	
 	*/
-	public String getCurrentUrl() {
-		return driver.getCurrentUrl();
+	public List<String> getCurrentUrl() {
+		List<String> temp = new ArrayList<>();
+		temp.add(driver.getCurrentUrl());
+		return temp;
 	}
 
 	/**
@@ -125,8 +132,10 @@ public class Browser implements BrowserInterface{
 	 *@return String
 	 *@desc - Gets the page source (Default selenium method)	
 	*/
-	public String getPageSource() {
-		return driver.getPageSource();
+	public List<String> getPageSource() {
+		List<String> temp = new ArrayList<>();
+		temp.add(driver.getPageSource());
+		return temp;
 	}
 
 	
@@ -137,8 +146,10 @@ public class Browser implements BrowserInterface{
 	 *@return String
 	 *@desc - Gets page title (Default selenium method)	
 	*/
-	public String getTitle() {
-		return driver.getTitle();
+	public List<String> getTitle() {
+		List<String> temp = new ArrayList<>();
+		temp.add(driver.getTitle());
+		return temp;
 	}
 
 	
@@ -149,8 +160,10 @@ public class Browser implements BrowserInterface{
 	 *@return String
 	 *@desc - Gets the window handle (Default selenium method)	
 	*/
-	public String getWindowHandle() {
-		return driver.getWindowHandle();
+	public List<String> getWindowHandle() {
+		List<String> temp = new ArrayList<>();
+		temp.add(driver.getWindowHandle());
+		return temp;
 	}
 
 	/**

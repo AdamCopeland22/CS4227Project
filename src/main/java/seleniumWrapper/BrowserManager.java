@@ -8,10 +8,10 @@ import org.openqa.selenium.WebDriver.TargetLocator;
 
 //Composite Pattern
 public class BrowserManager implements BrowserInterface{
-	private List<Browser> browserList;
+	private List<BrowserInterface> browserList;
 	
 	public BrowserManager() {
-		browserList = new ArrayList<Browser>();
+		browserList = new ArrayList<BrowserInterface>();
 	}
 	
 	/**
@@ -29,7 +29,7 @@ public class BrowserManager implements BrowserInterface{
 	 * @Desc - Returns browser at specified index
 	 * @param Int i 
 	 */
-	public Browser getBrowser(int i) {
+	public BrowserInterface getBrowser(int i) {
 		return browserList.get(i);
 	}
 	
@@ -56,7 +56,7 @@ public class BrowserManager implements BrowserInterface{
 	 */
 	public void close() {
 	  for(int i=0;i<browserList.size();i++) {
-		browserList.get(i).getDriver().close();
+		browserList.get(i).close();
 	  }
 		
 	}
@@ -103,7 +103,7 @@ public class BrowserManager implements BrowserInterface{
 		List<WebElement> list = new ArrayList<WebElement>();
 		 for(int i=0;i<browserList.size();i++) {
 				if(browserList.get(i).findElement(arg0)!=null) {
-					list.add(browserList.get(i).findElement(arg0));
+					list.add(browserList.get(i).findElement(arg0).get(0));
 				}
 		}
 		return list;
@@ -117,7 +117,7 @@ public class BrowserManager implements BrowserInterface{
 	public List<List<WebElement>> findElements(By arg0) {
 		List<List<WebElement>> list = new ArrayList<List<WebElement>>();
 		 for(int i=0;i<browserList.size();i++) {
-			 list.add(browserList.get(i).findElements(arg0));
+			 list.add(browserList.get(i).findElements(arg0).get(0));
 		 }
 		 return list;
 	}
@@ -141,7 +141,7 @@ public class BrowserManager implements BrowserInterface{
 	public List<String> getCurrentUrl() {
 		List<String> list = new ArrayList<String>();
 		 for(int i=0;i<browserList.size();i++) {
-			 list.add(browserList.get(i).getCurrentUrl());
+			 list.add(browserList.get(i).getCurrentUrl().get(0));
 		 }
 		return list;
 	}
@@ -154,7 +154,7 @@ public class BrowserManager implements BrowserInterface{
 	public List<String> getPageSource() {
 		List<String> list = new ArrayList<String>();
 		 for(int i=0;i<browserList.size();i++) {
-			 list.add(browserList.get(i).getPageSource());
+			 list.add(browserList.get(i).getPageSource().get(0));
 		 }
 		return list;
 	}
@@ -166,7 +166,7 @@ public class BrowserManager implements BrowserInterface{
 	public List<String> getTitle() {
 		List<String> list = new ArrayList<String>();
 		 for(int i=0;i<browserList.size();i++) {
-			 list.add(browserList.get(i).getTitle());
+			 list.add(browserList.get(i).getTitle().get(0));
 		 }
 		return list;
 	}
@@ -178,7 +178,7 @@ public class BrowserManager implements BrowserInterface{
 	public List<String> getWindowHandle() {
 		List<String> list = new ArrayList<String>();
 		 for(int i=0;i<browserList.size();i++) {
-			 list.add(browserList.get(i).getWindowHandle());
+			 list.add(browserList.get(i).getWindowHandle().get(0));
 		 }
 		return list;
 	}
@@ -194,21 +194,14 @@ public class BrowserManager implements BrowserInterface{
 			 browserList.get(i).quit();
 		 }
 		
+
 	}
 
-	/**
-	 * @author Cian
-	 * @Desc - Returns a list of TargetLocators from all browsers
-	 */
-	public List<TargetLocator> switchTo() {
-		List<TargetLocator> list = new ArrayList<TargetLocator>();
-		
+	@Override
+	public void addAction(String string) {
 		for(int i=0;i<browserList.size();i++) {
-			 list.add(browserList.get(i).switchTo());
+			 browserList.get(i).addAction(string);
 		 }
 		
-		return list;
-		
 	}
-
 }

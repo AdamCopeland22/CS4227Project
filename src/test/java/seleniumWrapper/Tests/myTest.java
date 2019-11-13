@@ -32,7 +32,7 @@ public class myTest {
     public void setUp()
     {
     	try {
-    		browserList= new BrowserManager();
+      		browserList= new BrowserManager();
     		myBrowser = new Browser(Config.chrome);
     		browser2 = new Browser(Config.chrome);
     		browserList.addBrowser(browser2);
@@ -84,7 +84,7 @@ public class myTest {
         	client.sendRequest("submit");
     	}
         
-        
+      
     	browserList.passedTest();
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -100,7 +100,7 @@ public class myTest {
     	  myBrowser.get(Base_Url);
     	  Thread.sleep(5000);
 		
-    	  WebElement search = myBrowser.findElement(By.name("q"));
+    	  WebElement search = myBrowser.findElement(By.name("q")).get(0);
           
     	  FilterManager filterManager = new FilterManager(search,myBrowser);
     	  filterManager.setFilter(new VisibleFilter());
@@ -130,7 +130,7 @@ public class myTest {
     @Test
     public void inputValidation() {
     	myBrowser.get("https://www.google.com/");
-    	WebElement searchBar = myBrowser.findElement(By.name("q"));
+    	WebElement searchBar = myBrowser.findElement(By.name("q")).get(0);
     	CommandInterface inputValidation = new InputDataAndCheckCommand(searchBar, "Armadillo", "q", "Armadillo", 3, myBrowser);
     	inputValidation.execute();
     }

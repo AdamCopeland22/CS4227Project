@@ -21,8 +21,7 @@ Command - Cathal
 
 Null Object ✓
 
-MVC ✓
-*Couple visual representations of test results or something
+MVC  - Cian
 
 Pluggable Adapter / Adapter ✓
 *JJ said implementing this would be good

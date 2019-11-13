@@ -3,6 +3,7 @@ package seleniumWrapper.WebElement;
 import org.openqa.selenium.WebElement;
 
 import seleniumWrapper.Browser;
+import seleniumWrapper.BrowserInterface;
 
 public interface Filter {
 	/**
@@ -12,6 +13,6 @@ public interface Filter {
 	 *@return void
 	 *@desc - Logs a passed test case	
 	*/
-	public boolean execute(WebElement e,Browser b,String request); 
+	public boolean execute(WebElement e,BrowserInterface b,String request); 
 
 }

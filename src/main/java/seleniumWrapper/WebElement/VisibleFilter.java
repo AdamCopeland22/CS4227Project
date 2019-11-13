@@ -3,6 +3,7 @@ package seleniumWrapper.WebElement;
 import org.openqa.selenium.WebElement;
 
 import seleniumWrapper.Browser;
+import seleniumWrapper.BrowserInterface;
 
 public class VisibleFilter implements Filter {
 
@@ -19,7 +20,7 @@ public class VisibleFilter implements Filter {
 	 *@desc - Checks if the specified element is visible	
 	*/
 	@Override
-	public boolean execute(WebElement e,Browser b,String request) {
+	public boolean execute(WebElement e,BrowserInterface b,String request) {
 		System.out.println("Element is visible:"+e.isDisplayed());
 		return e.isDisplayed();
 	}
