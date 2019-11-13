@@ -14,6 +14,8 @@ import seleniumWrapper.Commands.CommandInterface;
 import seleniumWrapper.Commands.InputDataAndCheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
+import seleniumWrapper.LoginPage.FacebookLoginPage;
+import seleniumWrapper.LoginPage.LoginPage;
 import seleniumWrapper.SecureLogin.SecureLogin;
 import seleniumWrapper.WebElement.Client;
 import seleniumWrapper.WebElement.ElementHandler;
@@ -133,6 +135,13 @@ public class myTest {
     	WebElement searchBar = myBrowser.findElement(By.name("q")).get(0);
     	CommandInterface inputValidation = new InputDataAndCheckCommand(searchBar, "Armadillo", "q", "Armadillo", 3, myBrowser);
     	inputValidation.execute();
+    }
+    
+    @Test
+    public void loginPageCheck()
+    {
+    	LoginPage login = new FacebookLoginPage("adam", "copeland");
+    	login.loginWithXpaths("//*[@id=\"email\"]", "//*[@id=\"pass\"]", "//*[@id=\"loginbutton\"]");
     }
 }
 	
