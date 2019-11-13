@@ -32,7 +32,7 @@ public class InputDataAndCheckCommand implements CommandInterface {
         click = new ClickCommand(elementForInput);
         sendKeys = new SendKeysCommand(elementForInput, textForInput);
         submit = new SubmitCommand(elementForInput);
-        textCheck = new TextCheckCommand(browser.findElement(By.name(elementToCheckID)), textToCheck);
+        textCheck = new TextCheckCommand(browser.findElement(By.name(elementToCheckID)).get(0), textToCheck);
         this.secondsToWaitForOutput = secondsToWaitForOutput;
         this.browser = browser;
         this.elementToCheckID = elementToCheckID;
@@ -59,7 +59,7 @@ public class InputDataAndCheckCommand implements CommandInterface {
 
     	String result = textCheck.execute(); 
     	if(result.equals("Stale Element")) {
-    		textCheck = new TextCheckCommand(browser.findElement(By.name(elementToCheckID)), textToCheck);
+    		textCheck = new TextCheckCommand(browser.findElement(By.name(elementToCheckID)).get(0), textToCheck);
     		result = textCheck.execute();
     	}
     	return result;
