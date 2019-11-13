@@ -11,7 +11,7 @@ Interpreter
 
 Mediator
 
-Memento
+Memento ✓
 
 The Factory Method ✓
 
@@ -24,7 +24,7 @@ Null Object ✓
 MVC ✓
 *Couple visual representations of test results or something
 
-Pluggable Adapter ✓
+Pluggable Adapter / Adapter ✓
 *JJ said implementing this would be good
 
 POSA
