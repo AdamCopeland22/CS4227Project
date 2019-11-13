@@ -25,6 +25,8 @@ public class ContentValidation implements Filter{
 		if(!getFileExtension(target).equals(fileExtension))
 			output += "Extension on file was: " + getFileExtension(target) + " but was meant to be: " + fileExtension + "\n";
 		output += sizeChecks(target);
+		if(output.equals(""))
+			System.out.println("Content test passed");
 		return output; 
 	}
 	

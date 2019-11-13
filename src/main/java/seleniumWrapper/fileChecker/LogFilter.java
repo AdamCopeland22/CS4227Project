@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class LogFilter implements Filter{
 	
@@ -16,16 +17,16 @@ public class LogFilter implements Filter{
 	public String validationCheck(File target) {
 		String output = "";
 		String line = null;
+		System.out.println("Log Filter on the file: " + target.getPath());
 		
 		 try {
-	            FileReader fileReader =  new FileReader(target);
-	            BufferedReader bufferedReader =  new BufferedReader(fileReader);
+			    Scanner scanner = new Scanner(target);
 
-	            while((line = bufferedReader.readLine()) != null) {
-	                output += line + "\n";
+	            while(scanner.hasNextLine()) {
+	                output += scanner.nextLine() + "\n";
 	            }   
 
-	            bufferedReader.close();         
+	            scanner.close();         
 	        }
 	        catch(FileNotFoundException ex) {
 	            output += "Unable to open file: '" +  target.getName() + "'";                

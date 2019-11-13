@@ -50,7 +50,7 @@ public class myTest {
     	browserList.quit();
     }
 
-    @Test
+   @Test
     public void testCasePassed ()
     {
     	//Test to open two browsers and execute actions on them sim	
@@ -122,8 +122,8 @@ public class myTest {
     
     @Test
     public void fileChecks() {
-    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\hiya.txt");
-    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(3, file);
+    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Json\\example.json");
+    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(4, file);
     	fileManager.FilterRequest();
     }
     
@@ -132,7 +132,7 @@ public class myTest {
     	myBrowser.get("https://www.google.com/");
     	WebElement searchBar = myBrowser.findElement(By.name("q"));
     	CommandInterface inputValidation = new InputDataAndCheckCommand(searchBar, "Armadillo", "q", "Armadillo", 3, myBrowser);
-    	System.out.print(inputValidation.execute());
+    	inputValidation.execute();
     }
 }
 	

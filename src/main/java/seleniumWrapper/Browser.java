@@ -255,16 +255,6 @@ public class Browser implements BrowserInterface{
 	}
 	
 	/**
-	 *@name errorHandler()
-	 *@author Cian
-	 *@param None
-	 *@return void
-	 *@desc - Logs an error in a test case	
-	*/
-	public void errorHandler(Exception e) {
-		log.errorHandler(e);
-	}
-	/**
 	 *@name passedTest()
 	 *@author Cian
 	 *@param None
@@ -284,6 +274,18 @@ public class Browser implements BrowserInterface{
 	*/
 	public void displayTestStats() {
 		log.updateView();
+	}
+
+	/**
+	 *@name errorHandler()
+	 *@author Cian
+	 *@param None
+	 *@return void
+	 *@desc - Logs an error in a test case	
+	*/
+	public void errorHandler(Exception e) {
+		// TODO Auto-generated method stub
+		log.errorHandler(e);
 	}
 
 }
