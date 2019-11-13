@@ -14,8 +14,8 @@ import seleniumWrapper.Commands.CommandInterface;
 import seleniumWrapper.Commands.InputDataAndCheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
-import seleniumWrapper.LoginPage.FacebookLoginPage;
-import seleniumWrapper.LoginPage.LoginPage;
+import seleniumWrapper.Page.LoginPage;
+import seleniumWrapper.Page.Page;
 import seleniumWrapper.SecureLogin.SecureLogin;
 import seleniumWrapper.WebElement.Client;
 import seleniumWrapper.WebElement.ElementHandler;
@@ -140,8 +140,9 @@ public class myTest {
     @Test
     public void loginPageCheck()
     {
-    	LoginPage login = new FacebookLoginPage("adam", "copeland");
-    	login.loginWithXpaths("//*[@id=\"email\"]", "//*[@id=\"pass\"]", "//*[@id=\"loginbutton\"]");
+    	LoginPage login = new LoginPage("adam", "copeland");
+    	login.setLoginFeilds("//*[@id=\"email\"]", "//*[@id=\"pass\"]", "//*[@id=\"loginbutton\"]");
+    	login.testPage();
     }
 }
 	
