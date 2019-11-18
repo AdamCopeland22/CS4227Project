@@ -14,13 +14,18 @@ import seleniumWrapper.Commands.CommandInterface;
 import seleniumWrapper.Commands.UICheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
-import seleniumWrapper.LoginPage.FacebookLoginPage;
-import seleniumWrapper.LoginPage.LoginPage;
+import seleniumWrapper.Page.GoogleSignUpPage;
+import seleniumWrapper.Page.LoginPage;
+import seleniumWrapper.Page.Page;
+import seleniumWrapper.Page.PageFactory;
+import seleniumWrapper.Page.PageFactory.PageType;
 import seleniumWrapper.SecureLogin.SecureLogin;
+import seleniumWrapper.WebElement.Button;
 import seleniumWrapper.WebElement.Client;
 import seleniumWrapper.WebElement.ElementHandler;
 import seleniumWrapper.WebElement.FilterManager;
 import seleniumWrapper.WebElement.LogFilter;
+import seleniumWrapper.WebElement.TextBox;
 import seleniumWrapper.WebElement.VisibleFilter;
 import seleniumWrapper.fileChecker.FileFilterManager;
 
@@ -125,8 +130,22 @@ public class myTest {
     @Test
     public void loginPageCheck()
     {
-    	LoginPage login = new FacebookLoginPage("adam", "copeland");
-    	login.loginWithXpaths("//*[@id=\"email\"]", "//*[@id=\"pass\"]", "//*[@id=\"loginbutton\"]");
+    	Page loginPage = PageFactory.getPage(PageType.LOGINPAGE);
+    	loginPage.testPage();
+    }
+    
+    @Test
+    public void GoogleSignUpCheck()
+    {
+    	Page googleSignUp = PageFactory.getPage(PageType.GOOGLESIGNUPPAGE);
+    	googleSignUp.testPage();
+    }
+    
+    @Test
+    public void SearchPageCheck()
+    {
+    	Page searchPage = PageFactory.getPage(PageType.SEARCHPAGE);
+    	searchPage.testPage();
     }
 }
 	
