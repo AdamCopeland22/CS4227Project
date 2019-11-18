@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import seleniumWrapper.Browser;
 
 
-public class InputDataAndCheckCommand implements CommandInterface {
+public class UICheckCommand implements CommandInterface {
     private CommandInterface click;
     private CommandInterface sendKeys;
     private CommandInterface submit;
@@ -27,7 +27,7 @@ public class InputDataAndCheckCommand implements CommandInterface {
 	 *@return NONE
 	 *@desc - Command used to check a fields data after a submission request. IE after login a certain text box appears
 	*/
-    public InputDataAndCheckCommand(WebElement elementForInput, String textForInput, 
+    public UICheckCommand(WebElement elementForInput, String textForInput, 
     		 String elementToCheckID, String textToCheck, int secondsToWaitForOutput, Browser browser) {
         click = new ClickCommand(elementForInput);
         sendKeys = new SendKeysCommand(elementForInput, textForInput);

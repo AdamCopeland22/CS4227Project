@@ -2,7 +2,7 @@ package seleniumWrapper.fileChecker;
 
 import java.io.File;
 
-public interface Filter {
+public interface FileFilter {
 	/**
 	 *@name validationCheck
 	 *@author Cathal

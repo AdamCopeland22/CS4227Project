@@ -35,17 +35,17 @@ public class FileFilterManager {
 	*/
 	private void setFilters() {
 		switch(filterType) {
-		case 1: chain.addFilter((Filter)new LogFilter());
+		case 1: chain.addFilter((FileFilter)new LogFilter());
 		return;
-		case 2: chain.addFilter((Filter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
+		case 2: chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
 				+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Json\\Schema.json")));
 		return;
-		case 3: chain.addFilter((Filter)new ContentValidation(".json", 100));
+		case 3: chain.addFilter((FileFilter)new ContentValidation(".json", 100));
 		return;
-		case 4: chain.addFilter((Filter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
+		case 4: chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
 				+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Json\\Schema.json")));
-		chain.addFilter((Filter)new ContentValidation(".json", 100));
-		chain.addFilter((Filter)new LogFilter());
+		chain.addFilter((FileFilter)new ContentValidation(".json", 100));
+		chain.addFilter((FileFilter)new LogFilter());
 		return;
 		default: return;
 		}

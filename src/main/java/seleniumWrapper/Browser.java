@@ -16,6 +16,8 @@ import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.WebDriver.TargetLocator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import seleniumWrapper.Logger.Log;
@@ -25,26 +27,43 @@ import seleniumWrapper.Logger.LogController;
 public class Browser implements BrowserInterface{
 	private WebDriver driver;
 	private LogController log;
+	private static final String linuxPath = System.getProperty("user.dir") + "//src//test//java//drivers//chromedriver";
+	private static final String windowsPath = System.getProperty("user.dir") + "\\src\\test\\java\\drivers\\chromedriver.exe";
 	
+	/**
+	 *@name close()
+	 *@author Cathal
+	 *@param browserType - which type of browser the user wishes to have
+	 *@return void
+	 *@desc - Strategy as to what browser to use as well as configurations set up for different browsers	
+	*/
 	public Browser(String browserType) {
 		String chromeDriverPath;
 		 if(browserType.equals(Config.chrome)) {
 			 if(System.getProperty("os.name").toLowerCase().equals("linux"))
-			 {
-				 	chromeDriverPath = System.getProperty("user.dir") + "//src//test//java//drivers//chromedriver";
-				 	System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-		            driver = new ChromeDriver(); 
-			 }
+				 chromeDriverPath = linuxPath;
 			 else
-			 {
-				 chromeDriverPath = System.getProperty("user.dir") + "\\src\\test\\java\\drivers\\chromedriver.exe";
-				 System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-		         driver = new ChromeDriver();
-			 }
+				 chromeDriverPath = windowsPath;
+			 
+			 System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+	         driver = new ChromeDriver();
 		 }
-	        else if(browserType.equals(Config.firefox)) {
-	            driver = new FirefoxDriver();
-	        }
+		 else if(browserType.equals(Config.chromeHeadless)) {
+			 System.setProperty("webdriver.chrome.driver", windowsPath);
+			 
+			 ChromeOptions options = new ChromeOptions();
+		     options.addArguments("headless");
+		     options.addArguments("window-size=1200x600");
+		     
+		     driver = new ChromeDriver(options);
+		 }
+	     else if(browserType.equals(Config.firefox)) {
+	         driver = new FirefoxDriver();
+	     }
+	     else if(browserType.equals(Config.edge)) {
+	    	 System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "\\src\\test\\java\\drivers\\iexplore.exe");
+	    	 driver = new EdgeDriver();
+	     }
 		 log = new LogController(new Log(),new LogBarChart());
 	}
 	

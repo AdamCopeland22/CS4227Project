@@ -4,7 +4,7 @@ import java.io.File;
 
 import seleniumWrapper.fileChecker.Json.JsonParser;
 
-public class JsonSchemaValidation implements Filter {
+public class JsonSchemaValidation implements FileFilter {
 
 	private File jsonSchema;
 	

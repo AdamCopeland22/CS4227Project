@@ -31,7 +31,7 @@ public class FilterManager {
 	   /**
 		 *@name setFilter(Filter)
 		 *@author Cian
-		 *@param Filter
+		 *@param FileFilter
 		 *@return void
 		 *@desc - Adds a filter to the chain
 		*/

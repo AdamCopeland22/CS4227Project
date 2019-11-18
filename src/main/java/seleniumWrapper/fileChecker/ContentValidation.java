@@ -2,7 +2,7 @@ package seleniumWrapper.fileChecker;
 
 import java.io.File;
 
-public class ContentValidation implements Filter{
+public class ContentValidation implements FileFilter{
 	
 	private String fileExtension;
 	private int fileSize;

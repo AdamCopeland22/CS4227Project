@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class FileFilterChain {
-	private ArrayList<Filter> filters;
+	private ArrayList<FileFilter> filters;
 	private File target;
 	
 	/**
@@ -16,30 +16,16 @@ public class FileFilterChain {
 	 *It also handles any outputs from the filters 
 	*/
 	public FileFilterChain(File tar) {
-		filters = new ArrayList<Filter>();
+		filters = new ArrayList<FileFilter>();
 		target = tar;
 	}
 	
-	/**
-	 *@name addFilter
-	 *@author Cathal
-	 *@param filter - The filter you wish to add to the FilterChain
-	 *@return void
-	 *@desc - Adds the filter to the FilterChain if it is not already in there
-	*/
-	public void addFilter(Filter filter) {
+	public void addFilter(FileFilter filter) {
 		if(!filters.contains(filter))
 			filters.add(filter);
 	}
 	
-	/**
-	 *@name removeFilter
-	 *@author Cathal
-	 *@param filter - The filter you wish to remove from the FilterChain
-	 *@return void
-	 *@desc - Removes reference of Filter from the chain if it is in there
-	*/
-	public void removeFilter(Filter filter) {
+	public void removeFilter(FileFilter filter) {
 		if(filters.contains(filter))
 			filters.remove(filter);
 	}
@@ -54,7 +40,7 @@ public class FileFilterChain {
 	*/
 	public ArrayList<String> validationCheck () {
 		ArrayList<String> outputs = new ArrayList<String>();
-		for(Filter filter: filters) {
+		for(FileFilter filter: filters) {
 			outputs.add(filter.validationCheck(target));
 		}
 		return outputs;

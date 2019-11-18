@@ -11,7 +11,7 @@ import org.openqa.selenium.*;
 import seleniumWrapper.*;
 import seleniumWrapper.Commands.ClickCommand;
 import seleniumWrapper.Commands.CommandInterface;
-import seleniumWrapper.Commands.InputDataAndCheckCommand;
+import seleniumWrapper.Commands.UICheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
 import seleniumWrapper.LoginPage.FacebookLoginPage;
@@ -120,21 +120,6 @@ public class myTest {
       }catch(Exception e) {
     	  myBrowser.errorHandler(e);  
       } 	
-    }
-    
-    @Test
-    public void fileChecks() {
-    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Json\\example.json");
-    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(4, file);
-    	fileManager.FilterRequest();
-    }
-    
-    @Test
-    public void inputValidation() {
-    	myBrowser.get("https://www.google.com/");
-    	WebElement searchBar = myBrowser.findElement(By.name("q")).get(0);
-    	CommandInterface inputValidation = new InputDataAndCheckCommand(searchBar, "Armadillo", "q", "Armadillo", 3, myBrowser);
-    	inputValidation.execute();
     }
     
     @Test
