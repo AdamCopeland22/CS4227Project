@@ -1,5 +1,7 @@
 package seleniumWrapper.Logger;
 
+import javafx.application.Application;
+
 public class LogPieChart extends LogView{
 
 	public LogPieChart() {
@@ -7,17 +9,14 @@ public class LogPieChart extends LogView{
 	}
 
 	/**
-	 * @author Cian
-	 * @param int []
-	 * @desc Displays test results in a "Pie chart" ;)
+	 * @author Alex
+	 * @param int [] testStats
+	 * @desc Displays test results in a Pie Chart
 	 */
 	@Override
 	public void displayResults(int[] testStats) {
-		System.out.println("THIS IS A BAR CHART");
-		System.out.println("Total tests: "+testStats[0]);
-		System.out.println("Passed tests: "+testStats[1]);
-		System.out.println("Failed tests: "+testStats[2]);
-		
+		Application.launch(DrawPieChart.class, ("--TotalTests=" + testStats[0]),
+				("--PassedTests=" + testStats[1]), ("--FailedTests=" + testStats[2]));
 	}
 
 }

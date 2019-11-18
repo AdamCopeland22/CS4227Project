@@ -1,25 +1,22 @@
 package seleniumWrapper.Logger;
 
-
+import javafx.application.Application;
 
 public class LogBarChart extends LogView{
 
+	
 	public LogBarChart() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @author Cian
-	 * @param int []
-	 * @desc Displays test results in a "Bar chart" ;)
+	 * @author Alex
+	 * @param int [] testStats
+	 * @desc Displays test results in a Bar Chart
 	 */
 	@Override
 	public void displayResults(int[] testStats) {
-		System.out.println("THIS IS A BAR CHART");
-		System.out.println("Total tests: "+testStats[0]);
-		System.out.println("Passed tests: "+testStats[1]);
-		System.out.println("Failed tests: "+testStats[2]);
-		
+		Application.launch(DrawBarChart.class, ("--TotalTests=" + testStats[0]),
+				("--PassedTests=" + testStats[1]), ("--FailedTests=" + testStats[2]));
 	}
-
 }
