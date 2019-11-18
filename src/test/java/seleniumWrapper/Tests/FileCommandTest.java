@@ -14,8 +14,6 @@ import seleniumWrapper.Commands.CommandInterface;
 import seleniumWrapper.Commands.UICheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
-import seleniumWrapper.LoginPage.FacebookLoginPage;
-import seleniumWrapper.LoginPage.LoginPage;
 import seleniumWrapper.SecureLogin.SecureLogin;
 import seleniumWrapper.WebElement.Client;
 import seleniumWrapper.WebElement.ElementHandler;
@@ -40,7 +38,7 @@ public class FileCommandTest {
     
     @Test
     public void inputValidation() {
-    	myBrowser = new Browser(Config.chromeHeadless);
+    	myBrowser = new Browser(Config.chrome);
     	myBrowser.get("https://www.google.com/");
     	WebElement searchBar = myBrowser.findElement(By.name("q")).get(0);
     	CommandInterface UIValidation = new UICheckCommand(searchBar, "Armadillo", "q", "Armadillo", 3, myBrowser);
