@@ -1,5 +1,7 @@
 package seleniumWrapper.fileChecker;
 
+import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -38,14 +40,24 @@ public class FileFilterManager {
 		case 1: chain.addFilter((FileFilter)new LogFilter());
 		return;
 		case 2: chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
-				+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Json\\Schema.json")));
+				+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")));
 		return;
 		case 3: chain.addFilter((FileFilter)new ContentValidation(".json", 100));
 		return;
-		case 4: chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
-				+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Json\\Schema.json")));
-		chain.addFilter((FileFilter)new ContentValidation(".json", 100));
-		chain.addFilter((FileFilter)new LogFilter());
+		case 4: chain.addFilter((FileFilter)new HttpValidation("http:webcode.me"));
+		return;
+		case 5:
+			chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
+			+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")));
+			chain.addFilter((FileFilter)new ContentValidation(".json", 100));
+			chain.addFilter((FileFilter)new LogFilter());
+		return;
+		case 6:
+			chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
+			+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")));
+			chain.addFilter((FileFilter)new ContentValidation(".json", 100));
+			chain.addFilter((FileFilter)new LogFilter());
+			chain.addFilter((FileFilter)new HttpValidation("http:webcode.me"));
 		return;
 		default: return;
 		}
@@ -60,8 +72,15 @@ public class FileFilterManager {
 	*/
 	public void FilterRequest() {
 		ArrayList<String> outputs = chain.validationCheck();
+		boolean failure = false;
+		
 		for(String output: outputs) {
+			if(output.contains("Error:"))
+				failure = true;
 			System.out.print(output);
 		}
+		
+		if(failure)
+			fail();
 	}
 }

@@ -1,4 +1,4 @@
-package seleniumWrapper.fileChecker.Json;
+package seleniumWrapper.fileChecker.Files;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -156,7 +156,7 @@ public class JsonParser {
 			}
 		}
 		if(!dataFound)
-			return "No Data Was Found In File";
+			return "Error: No Data Was Found In File";
 		return result;
 	}
 	
@@ -183,11 +183,11 @@ public class JsonParser {
 			}
 			else {
 					if(!(fileMap.get(id.replaceAll(" ", ""))).matches(value.replaceAll(" ", "")))
-						result = "Values did not match json schema regex patterns\n";
+						result = "Error: Values did not match json schema regex patterns\n";
 			}
 		}
 		catch (NumberFormatException num) {
-			result = "Was meant to find a number and didnt\n";
+			result = "Error: Was meant to find a number and didnt\n";
 		}
 		return result;
 	}

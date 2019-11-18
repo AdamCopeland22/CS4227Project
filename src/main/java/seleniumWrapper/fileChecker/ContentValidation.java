@@ -23,7 +23,7 @@ public class ContentValidation implements FileFilter{
 	public String validationCheck(File target) {
 		String output = "";
 		if(!getFileExtension(target).equals(fileExtension))
-			output += "Extension on file was: " + getFileExtension(target) + " but was meant to be: " + fileExtension + "\n";
+			output += "Error: Extension on file was: " + getFileExtension(target) + " but was meant to be: " + fileExtension + "\n";
 		output += sizeChecks(target);
 		if(output.equals(""))
 			System.out.println("Content test passed");
@@ -52,7 +52,7 @@ public class ContentValidation implements FileFilter{
 	*/
 	private String sizeChecks(File target) {
 		if(target.length() > fileSize)
-			return "File size was greater than: " + target.length() + " but was meant to be less than: " + fileSize + "\n";
+			return "Error: File size was greater than: " + target.length() + " but was meant to be less than: " + fileSize + "\n";
 		else if(target.length() == fileSize)
 			return "File size was the same size as the limit: " + fileSize + "\n";
 		return "";

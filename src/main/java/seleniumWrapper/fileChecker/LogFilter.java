@@ -29,10 +29,10 @@ public class LogFilter implements FileFilter{
 	            scanner.close();         
 	        }
 	        catch(FileNotFoundException ex) {
-	            output += "Unable to open file: '" +  target.getName() + "'";                
+	            output += "Error: Unable to open file: '" +  target.getName() + "'";                
 	        }
 	        catch(IOException ex) {
-	            output += "Error reading file: '" + target.getName() + "'";     
+	            output += "Error: Error reading file: '" + target.getName() + "'";     
 	        }
 		return output; 
     }

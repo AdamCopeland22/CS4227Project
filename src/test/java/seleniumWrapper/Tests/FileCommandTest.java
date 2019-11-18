@@ -1,8 +1,13 @@
 package seleniumWrapper.Tests;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.List;
 
+import org.apache.http.protocol.HTTP;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +16,7 @@ import org.openqa.selenium.*;
 import seleniumWrapper.*;
 import seleniumWrapper.Commands.ClickCommand;
 import seleniumWrapper.Commands.CommandInterface;
+import seleniumWrapper.Commands.HttpsCheckCommand;
 import seleniumWrapper.Commands.UICheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
@@ -31,8 +37,8 @@ public class FileCommandTest {
     
     @Test
     public void fileChecks() {
-    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Json\\transaction.json");
-    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(4, file);
+    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\transaction.json");
+    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(5, file);
     	fileManager.FilterRequest();
     }
     
@@ -45,6 +51,13 @@ public class FileCommandTest {
     	UIValidation.execute();
     	myBrowser.close();
     	System.out.println("UI Elements Validated");
+    }
+    
+    @Test
+    public void httpsRequest() {
+    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\HttpResponseValidator.txt");
+    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(4, file);
+    	fileManager.FilterRequest();
     }
 }
 	

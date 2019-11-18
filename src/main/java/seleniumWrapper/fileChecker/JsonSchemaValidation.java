@@ -2,7 +2,7 @@ package seleniumWrapper.fileChecker;
 
 import java.io.File;
 
-import seleniumWrapper.fileChecker.Json.JsonParser;
+import seleniumWrapper.fileChecker.Files.JsonParser;
 
 public class JsonSchemaValidation implements FileFilter {
 
