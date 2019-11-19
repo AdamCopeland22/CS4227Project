@@ -9,14 +9,16 @@ public class SearchPage implements Page{
 	
 	String searchBarXpath;
 	String submitButton;
+	
 	String url = "https://www.google.com";
 	Browser myBrowser = new Browser(Config.chrome);
-
+	ConcreteUser user;
 	
 	public SearchPage(String searchBarXpath, String submitButton)
 	{
 		this.searchBarXpath = searchBarXpath;
 		this.submitButton = submitButton;
+		user = new ConcreteUser("Adam", "Copeland", "lol", "lolo");
 	}
 	
 	@Override
@@ -34,6 +36,12 @@ public class SearchPage implements Page{
 		{
 			myBrowser.errorHandler(e);
 		}
+	}
+
+	@Override
+	public void setUser(ConcreteUser user) {
+		// TODO Auto-generated method stub
+		this.user = user;
 	}
 
 }
