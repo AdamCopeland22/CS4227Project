@@ -54,6 +54,7 @@ public class GoogleSignUpPage implements Page{
 			confirmPassword.sendKeys(user.getPassword());
 			
 			submit.click();
+			myBrowser.passedTest();
 		}
 		catch(Exception e) 
 		{

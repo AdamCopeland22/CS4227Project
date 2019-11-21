@@ -18,7 +18,7 @@ public class SearchPage implements Page{
 	{
 		this.searchBarXpath = searchBarXpath;
 		this.submitButton = submitButton;
-		user = new ConcreteUser("Adam", "Copeland", "lol", "lolo");
+		user = new ConcreteUser();
 	}
 	
 	@Override
@@ -31,6 +31,7 @@ public class SearchPage implements Page{
 			Button submit = new Button(submitButton, myBrowser);
 			searchBar.sendKeys("hello world");
 			submit.click();
+			myBrowser.passedTest();
 		}
 		catch(Exception e)
 		{

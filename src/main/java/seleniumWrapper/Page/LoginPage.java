@@ -48,6 +48,7 @@ public class LoginPage implements Page
 			uname.sendKeys(user.getUserName());
 			pword.sendKeys(user.getPassword());
 			submit.click();
+			myBrowser.passedTest();
 		}
 		catch(Exception e) 
 		{
