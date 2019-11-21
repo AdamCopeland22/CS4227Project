@@ -14,9 +14,9 @@ public class LoginPage implements Page
 	Browser myBrowser = new Browser(Config.chrome);
 	ConcreteUser user;
 
-	public LoginPage(String usernameXpath, String paswordXpath, String submitButton) 
+	public LoginPage(String usernameXpath, String paswordXpath, String submitButton, String url) 
 	{
-		url = "https://www.facebook.com/?stype=lo&jlou=Afe3LTKY9wMMPDeuhoMupdZq1rRtykGVVKEK4H3zjxXLczrk1ikN2JlMUHa7ZZxUDmQxYkZERmEqcJL9KReRt-BScx2qwLkWa901rA6QKxbkag&smuh=9211&lh=Ac_4cCfhZ6w2ek2m";
+		this.url = url;
 		try
 		{
 			this.usernameXpath = usernameXpath;
@@ -30,11 +30,25 @@ public class LoginPage implements Page
 		}
 	}
 	
+	/**
+	 *@name setUser()
+	 *@author Adam
+	 *@param Pass a Conctete user 
+	 *@return void
+	 *@desc - Method for setting user of website
+	*/
 	public void setUser(ConcreteUser user)
 	{
 		this.user = user;
 	}
 
+	/**
+	 *@name setUser()
+	 *@author Adam
+	 *@param Pass a Conctete user 
+	 *@return void
+	 *@desc - Method for setting user of website
+	*/
 	@Override
 	public void testPage() {
 		try 

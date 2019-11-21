@@ -10,17 +10,25 @@ public class SearchPage implements Page{
 	String searchBarXpath;
 	String submitButton;
 	
-	String url = "https://www.google.com";
+	String url;
 	Browser myBrowser = new Browser(Config.chrome);
 	ConcreteUser user;
 	
-	public SearchPage(String searchBarXpath, String submitButton)
+	public SearchPage(String searchBarXpath, String submitButton, String url)
 	{
 		this.searchBarXpath = searchBarXpath;
 		this.submitButton = submitButton;
+		this.url = url;
 		user = new ConcreteUser();
 	}
 	
+	/**
+	 *@name testPage()
+	 *@author Adam
+	 *@param none 
+	 *@return void
+	 *@desc - Method for testing website taken from the interface Page
+	*/
 	@Override
 	public void testPage() {
 		try
@@ -38,7 +46,15 @@ public class SearchPage implements Page{
 			myBrowser.errorHandler(e);
 		}
 	}
-
+	
+	
+	/**
+	 *@name setUser()
+	 *@author Adam
+	 *@param Pass a Conctete user 
+	 *@return void
+	 *@desc - Method for setting user of website
+	*/
 	@Override
 	public void setUser(ConcreteUser user) {
 		// TODO Auto-generated method stub

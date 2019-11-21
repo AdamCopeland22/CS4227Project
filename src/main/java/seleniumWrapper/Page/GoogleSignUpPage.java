@@ -13,11 +13,11 @@ public class GoogleSignUpPage implements Page{
 	String passwordXpath;
 	String confirmPWXpath;
 	String submitButton;
-	String url = "https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp";
+	String url;
 	Browser myBrowser = new Browser(Config.chrome);
 	ConcreteUser user;
 	
-	public GoogleSignUpPage(String firstNameXpath, String lastNameXpath, String usernameXpath, String passwordXpath, String confirmPWXpath, String submitButton) 
+	public GoogleSignUpPage(String firstNameXpath, String lastNameXpath, String usernameXpath, String passwordXpath, String confirmPWXpath, String submitButton, String url) 
 	{
 		this.firstNameXpath = firstNameXpath;
 		this.lastNameXpath = lastNameXpath;
@@ -25,14 +25,29 @@ public class GoogleSignUpPage implements Page{
 		this.passwordXpath = passwordXpath;
 		this.confirmPWXpath = confirmPWXpath;
 		this.submitButton = submitButton;
+		this.url = url;
 		user = new ConcreteUser("Adam", "Copeland", "lol", "lolo");
 	}
 	
+	/**
+	 *@name setUser()
+	 *@author Adam
+	 *@param Pass a Conctete user 
+	 *@return void
+	 *@desc - Method for setting user of website
+	*/
 	public void setUser(ConcreteUser user)
 	{
 		this.user = user;
 	}
 	
+	/**
+	 *@name setUser()
+	 *@author Adam
+	 *@param Pass a Conctete user 
+	 *@return void
+	 *@desc - Method for setting user of website
+	*/
 	@Override
 	public void testPage() {
 		try
