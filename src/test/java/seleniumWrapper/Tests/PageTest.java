@@ -35,4 +35,13 @@ public class PageTest {
 	    Page searchPage = PageFactory.getPage(PageType.SEARCHPAGE);
 	    searchPage.testPage();
 	}
+	 
+	@Test
+	public void ButtonOnPageCheck()
+    {
+	    Page searchPage = PageFactory.getPage(PageType.BUTTONONPAGE);
+	    searchPage.testPage();
+	}
+	
+	
 }
