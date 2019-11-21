@@ -33,12 +33,14 @@ public class FileCommandTest {
 	private static String Base_Url = "https://www.google.com";
     private BrowserInterface myBrowser;
     private BrowserManager browserList;
+    private static String TRANSACTION = "Transaction";
+    private static String HTTP = "Http";
     
     //This is a check to display the Json file validation that could be used or testing transactions, data sharing, message sending etc.
     @Test
     public void fileChecks() {
     	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\transaction.json");
-    	FileFilterManager fileManager = FileFilterManager.ManagerCreation("Transaction", file);
+    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(TRANSACTION, file);
     	fileManager.FilterRequest();
     }
     
@@ -58,7 +60,7 @@ public class FileCommandTest {
     @Test
     public void httpsRequest() {
     	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\HttpResponseValidator.txt");
-    	FileFilterManager fileManager = FileFilterManager.ManagerCreation("Http", file);
+    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(HTTP, file);
     	fileManager.FilterRequest();
     }
 }
