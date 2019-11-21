@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 public class FileFilterManager {
 	
-	private int filterType;
+	private String filterType;
 	private FileFilterChain chain;
 	
-	public FileFilterManager(int type, File targetFile) {
+	public FileFilterManager(String type, File targetFile) {
 	  filterType = type;
 	  chain = new FileFilterChain(targetFile);
 	  setFilters();
@@ -24,7 +24,7 @@ public class FileFilterManager {
 	 *@return FilterManager - instance to be used by client
 	 *@desc - Sets up the manager so as not to use new keyword
 	*/
-	public static FileFilterManager ManagerCreation(int type, File targetFile) {
+	public static FileFilterManager ManagerCreation(String type, File targetFile) {
 		return new FileFilterManager(type, targetFile);
 	}
 
@@ -37,22 +37,22 @@ public class FileFilterManager {
 	*/
 	private void setFilters() {
 		switch(filterType) {
-		case 1: chain.addFilter((FileFilter)new LogFilter());
+		case "Log": chain.addFilter((FileFilter)new LogFilter());
 		return;
-		case 2: chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
+		case "Json": chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
 				+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")));
 		return;
-		case 3: chain.addFilter((FileFilter)new ContentValidation(".json", 100));
+		case "Content": chain.addFilter((FileFilter)new ContentValidation(".json", 100));
 		return;
-		case 4: chain.addFilter((FileFilter)new HttpValidation("http:webcode.me"));
+		case "Http": chain.addFilter((FileFilter)new HttpValidation("http:webcode.me"));
 		return;
-		case 5:
+		case "Transaction":
 			chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
 			+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")));
 			chain.addFilter((FileFilter)new ContentValidation(".json", 100));
 			chain.addFilter((FileFilter)new LogFilter());
 		return;
-		case 6:
+		case "All":
 			chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
 			+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")));
 			chain.addFilter((FileFilter)new ContentValidation(".json", 100));
