@@ -50,6 +50,7 @@ public class ButtonOnPage implements Page
 			Button submit = new Button(button, myBrowser);
 			submit.click();
 			myBrowser.passedTest();
+			myBrowser.close();
 		}
 		catch(Exception e) 
 		{

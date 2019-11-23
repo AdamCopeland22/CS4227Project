@@ -63,6 +63,7 @@ public class LoginPage implements Page
 			pword.sendKeys(user.getPassword());
 			submit.click();
 			myBrowser.passedTest();
+			myBrowser.close();
 		}
 		catch(Exception e) 
 		{

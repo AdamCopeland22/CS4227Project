@@ -70,6 +70,7 @@ public class GoogleSignUpPage implements Page{
 			
 			submit.click();
 			myBrowser.passedTest();
+			myBrowser.close();
 		}
 		catch(Exception e) 
 		{

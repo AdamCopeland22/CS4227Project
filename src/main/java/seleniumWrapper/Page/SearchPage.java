@@ -40,6 +40,7 @@ public class SearchPage implements Page{
 			searchBar.sendKeys("hello world");
 			submit.click();
 			myBrowser.passedTest();
+			myBrowser.close();
 		}
 		catch(Exception e)
 		{
