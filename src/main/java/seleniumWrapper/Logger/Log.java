@@ -14,6 +14,7 @@ public class Log {
 
 	 ArrayList<String> actionList;
 	int test,passed,failed;
+	
 	public Log() {
 		actionList = new ArrayList<>();
 	}

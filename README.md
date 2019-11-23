@@ -7,7 +7,9 @@ Design patterns we want to use
 
 Interceptor - Cathal - cian
 
-Interpreter
+Factory - Adam
+
+Prototype - Adam
 
 Mediator
 

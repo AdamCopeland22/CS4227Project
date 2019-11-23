@@ -126,27 +126,6 @@ public class myTest {
     	  myBrowser.errorHandler(e);  
       } 	
     }
-    
-    @Test
-    public void loginPageCheck()
-    {
-    	Page loginPage = PageFactory.getPage(PageType.LOGINPAGE);
-    	loginPage.testPage();
-    }
-    
-    @Test
-    public void GoogleSignUpCheck()
-    {
-    	Page googleSignUp = PageFactory.getPage(PageType.GOOGLESIGNUPPAGE);
-    	googleSignUp.testPage();
-    }
-    
-    @Test
-    public void SearchPageCheck()
-    {
-    	Page searchPage = PageFactory.getPage(PageType.SEARCHPAGE);
-    	searchPage.testPage();
-    }
 }
 	
 

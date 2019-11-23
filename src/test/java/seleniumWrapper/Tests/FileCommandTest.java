@@ -31,17 +31,20 @@ import seleniumWrapper.fileChecker.FileFilterManager;
 public class FileCommandTest {
 
 	private static String Base_Url = "https://www.google.com";
-    private Browser myBrowser;
+    private BrowserInterface myBrowser;
     private BrowserManager browserList;
+    private static String TRANSACTION = "Transaction";
+    private static String HTTP = "Http";
     
-    
+    //This is a check to display the Json file validation that could be used or testing transactions, data sharing, message sending etc.
     @Test
     public void fileChecks() {
     	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\transaction.json");
-    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(5, file);
+    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(TRANSACTION, file);
     	fileManager.FilterRequest();
     }
     
+    //This test is to show how you can use commands to run executable pieces of code for testing browser interaction.
     @Test
     public void inputValidation() {
     	myBrowser = new Browser(Config.chrome);
@@ -53,10 +56,11 @@ public class FileCommandTest {
     	System.out.println("UI Elements Validated");
     }
     
+    //This test is to show how using an intercepter on HTTP Post/Get requests can be a proficient way to test the capabilities of a system.
     @Test
     public void httpsRequest() {
     	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\HttpResponseValidator.txt");
-    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(4, file);
+    	FileFilterManager fileManager = FileFilterManager.ManagerCreation(HTTP, file);
     	fileManager.FilterRequest();
     }
 }

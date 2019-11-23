@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import seleniumWrapper.Browser;
+import seleniumWrapper.BrowserInterface;
 
 
 public class UICheckCommand implements CommandInterface {
@@ -11,7 +12,7 @@ public class UICheckCommand implements CommandInterface {
     private CommandInterface submit;
     private CommandInterface textCheck;
     private int secondsToWaitForOutput;
-    private Browser browser;
+    private BrowserInterface browser;
     private String elementToCheckID;
     private String textToCheck;
 
@@ -28,7 +29,7 @@ public class UICheckCommand implements CommandInterface {
 	 *@desc - Command used to check a fields data after a submission request. IE after login a certain text box appears
 	*/
     public UICheckCommand(WebElement elementForInput, String textForInput, 
-    		 String elementToCheckID, String textToCheck, int secondsToWaitForOutput, Browser browser) {
+    		 String elementToCheckID, String textToCheck, int secondsToWaitForOutput, BrowserInterface browser) {
         click = new ClickCommand(elementForInput);
         sendKeys = new SendKeysCommand(elementForInput, textForInput);
         submit = new SubmitCommand(elementForInput);
