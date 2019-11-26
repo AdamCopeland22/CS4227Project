@@ -98,7 +98,7 @@ public class FileFilterManager {
 	
     public static String getPath(String path) {
     	if(System.getProperty("os.name").toLowerCase().equals("linux")) {
-    		return path.replaceAll("\\", "//");
+    		return path.replace("\\", File.separator);
     	}
     	else {
     		return path;

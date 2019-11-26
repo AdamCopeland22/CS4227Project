@@ -1,11 +1,6 @@
 package seleniumWrapper.Tests;
 import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.List;
+
 
 import org.apache.http.protocol.HTTP;
 import org.junit.After;
@@ -20,12 +15,6 @@ import seleniumWrapper.Commands.HttpsCheckCommand;
 import seleniumWrapper.Commands.UICheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
-import seleniumWrapper.SecureLogin.SecureLogin;
-import seleniumWrapper.WebElement.Client;
-import seleniumWrapper.WebElement.ElementHandler;
-import seleniumWrapper.WebElement.FilterManager;
-import seleniumWrapper.WebElement.LogFilter;
-import seleniumWrapper.WebElement.VisibleFilter;
 import seleniumWrapper.fileChecker.FileFilter;
 import seleniumWrapper.fileChecker.FileFilterManager;
 import seleniumWrapper.fileChecker.HttpValidation;
