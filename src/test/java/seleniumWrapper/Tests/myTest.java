@@ -14,7 +14,6 @@ import seleniumWrapper.Commands.CommandInterface;
 import seleniumWrapper.Commands.UICheckCommand;
 import seleniumWrapper.Commands.SendKeysCommand;
 import seleniumWrapper.Commands.SubmitCommand;
-import seleniumWrapper.Page.GoogleSignUpPage;
 import seleniumWrapper.Page.LoginPage;
 import seleniumWrapper.Page.Page;
 import seleniumWrapper.Page.PageFactory;

@@ -26,7 +26,9 @@ import seleniumWrapper.WebElement.ElementHandler;
 import seleniumWrapper.WebElement.FilterManager;
 import seleniumWrapper.WebElement.LogFilter;
 import seleniumWrapper.WebElement.VisibleFilter;
+import seleniumWrapper.fileChecker.FileFilter;
 import seleniumWrapper.fileChecker.FileFilterManager;
+import seleniumWrapper.fileChecker.HttpValidation;
 
 public class FileCommandTest {
 
@@ -61,6 +63,14 @@ public class FileCommandTest {
     public void httpsRequest() {
     	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\HttpResponseValidator.txt");
     	FileFilterManager fileManager = FileFilterManager.ManagerCreation(HTTP, file);
+    	fileManager.FilterRequest();
+    }
+    
+  //This test is to show how to register a new Concrete Intercepter to the Dispatcher
+    @Test
+    public void newConcreteIntercepter() {
+    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\HttpResponseValidator.txt");
+    	FileFilterManager fileManager = new FileFilterManager((FileFilter) new HttpValidation("http:webcode.me"), file);
     	fileManager.FilterRequest();
     }
 }

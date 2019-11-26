@@ -9,12 +9,20 @@ public class FileFilterManager {
 	
 	private String filterType;
 	private FileFilterChain chain;
+	private FileFilter Intercepter;
 	
 	public FileFilterManager(String type, File targetFile) {
 	  filterType = type;
 	  chain = new FileFilterChain(targetFile);
 	  setFilters();
 	}
+	
+//Constructor for adding new intercepter (extension of FileFilter)
+	public FileFilterManager(FileFilter newIntercepter, File targetFile) {
+		Intercepter = newIntercepter;
+		  chain = new FileFilterChain(targetFile);
+		  chain.addFilter(newIntercepter);
+		}
 	
 	/**
 	 *@name ManagerCreation
@@ -26,6 +34,10 @@ public class FileFilterManager {
 	*/
 	public static FileFilterManager ManagerCreation(String type, File targetFile) {
 		return new FileFilterManager(type, targetFile);
+	}
+	
+	public static FileFilterManager RegisterInterceptor(FileFilter newInterceptor,File targetFile) {
+		return new FileFilterManager(newInterceptor, targetFile);
 	}
 
 	/**
