@@ -23,7 +23,7 @@ public class HttpValidation implements FileFilter{
 			fileScanner = new Scanner(target);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			return "Error: File validator not found";
+			return "Error: File validator not found\\n";
 		}
 		
 		String lineFromFile;
@@ -35,11 +35,11 @@ public class HttpValidation implements FileFilter{
 					break;
 
 				if(!lineFromFile.equals(line.trim())) {
-					return "Error: Response does not match validator";
+					return "Error: Response does not match validator\\n";
 				}
 			}
         } 
-		return "Response matched validator";
+		return "Response matched validator\n";
 	}
 
 }

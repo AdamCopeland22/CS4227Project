@@ -29,6 +29,7 @@ import seleniumWrapper.WebElement.VisibleFilter;
 import seleniumWrapper.fileChecker.FileFilter;
 import seleniumWrapper.fileChecker.FileFilterManager;
 import seleniumWrapper.fileChecker.HttpValidation;
+import seleniumWrapper.fileChecker.JsonSchemaValidation;
 
 public class FileCommandTest {
 
@@ -69,8 +70,9 @@ public class FileCommandTest {
   //This test is to show how to register a new Concrete Intercepter to the Dispatcher
     @Test
     public void newConcreteIntercepter() {
-    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\HttpResponseValidator.txt");
-    	FileFilterManager fileManager = new FileFilterManager((FileFilter) new HttpValidation("http:webcode.me"), file);
+    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\transaction.json");
+    	FileFilterManager fileManager = new FileFilterManager((FileFilter) new JsonSchemaValidation(new File(System.getProperty("user.dir") 
+    			+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")), file);
     	fileManager.FilterRequest();
     }
 }
