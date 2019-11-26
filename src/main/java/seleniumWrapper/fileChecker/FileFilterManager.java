@@ -52,7 +52,7 @@ public class FileFilterManager {
 		case "Log": chain.addFilter((FileFilter)new LogFilter());
 		return;
 		case "Json": chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
-				+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")));
+				+ getPath("\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json"))));
 		return;
 		case "Content": chain.addFilter((FileFilter)new ContentValidation(".json", 100));
 		return;
@@ -60,13 +60,13 @@ public class FileFilterManager {
 		return;
 		case "Transaction":
 			chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
-			+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")));
+			+ getPath("\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json"))));
 			chain.addFilter((FileFilter)new ContentValidation(".json", 100));
 			chain.addFilter((FileFilter)new LogFilter());
 		return;
 		case "All":
 			chain.addFilter((FileFilter)new JsonSchemaValidation(new File(System.getProperty("user.dir") 
-			+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")));
+			+ getPath("\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json"))));
 			chain.addFilter((FileFilter)new ContentValidation(".json", 100));
 			chain.addFilter((FileFilter)new LogFilter());
 			chain.addFilter((FileFilter)new HttpValidation("http:webcode.me"));
@@ -95,4 +95,13 @@ public class FileFilterManager {
 		if(failure)
 			fail();
 	}
+	
+    public static String getPath(String path) {
+    	if(System.getProperty("os.name").toLowerCase().equals("linux")) {
+    		return path.replaceAll("\\", "//");
+    	}
+    	else {
+    		return path;
+    	}
+    }
 }

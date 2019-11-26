@@ -38,11 +38,12 @@ public class FileCommandTest {
     private BrowserManager browserList;
     private static String TRANSACTION = "Transaction";
     private static String HTTP = "Http";
+    private static String I = "/"; // I for iterator
     
     //This is a check to display the Json file validation that could be used or testing transactions, data sharing, message sending etc.
     @Test
     public void fileChecks() {
-    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\transaction.json");
+    	File file = new File( System.getProperty("user.dir") + FileFilterManager.getPath("\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\transaction.json"));
     	FileFilterManager fileManager = FileFilterManager.ManagerCreation(TRANSACTION, file);
     	fileManager.FilterRequest();
     }
@@ -62,7 +63,7 @@ public class FileCommandTest {
     //This test is to show how using an intercepter on HTTP Post/Get requests can be a proficient way to test the capabilities of a system.
     @Test
     public void httpsRequest() {
-    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\HttpResponseValidator.txt");
+    	File file = new File( System.getProperty("user.dir") + FileFilterManager.getPath("\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\HttpResponseValidator.txt"));
     	FileFilterManager fileManager = FileFilterManager.ManagerCreation(HTTP, file);
     	fileManager.FilterRequest();
     }
@@ -70,9 +71,9 @@ public class FileCommandTest {
   //This test is to show how to register a new Concrete Intercepter to the Dispatcher
     @Test
     public void newConcreteIntercepter() {
-    	File file = new File( System.getProperty("user.dir") + "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\transaction.json");
+    	File file = new File( System.getProperty("user.dir") + FileFilterManager.getPath("\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\transaction.json"));
     	FileFilterManager fileManager = new FileFilterManager((FileFilter) new JsonSchemaValidation(new File(System.getProperty("user.dir") 
-    			+ "\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json")), file);
+    			+ FileFilterManager.getPath("\\src\\main\\java\\seleniumWrapper\\fileChecker\\Files\\Schema.json"))), file);
     	fileManager.FilterRequest();
     }
 }
